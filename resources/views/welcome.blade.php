@@ -5,13 +5,14 @@
 
     <!-- END head -->
 
-    <section class="site-hero overlay" style="background-image: {{(url('Frontend/images/Jerusalem.jpg'))}}" data-stellar-background-ratio="0.5">
+    <section class="site-hero overlay"          style="background-image: url('{{ url('Frontend/images/Jerusalem.jpg') }}');" 
+    data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade-up">
             <span class="custom-caption text-uppercase text-white d-block  mb-3">Welcome To Palestine Gate <span class="fa fa-star text-primary">
             <h1 class="heading">Find your best stay</h1>
-          </div>{
+          </div>
         </div>
       </div>
 
@@ -96,8 +97,8 @@
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"><em>or</em></span> <a href="https://vimeo.com/channels/staffpicks/93951774"  data-fancybox class="text-uppercase letter-spacing-1">See video</a></p>
+            <p class="mb-4">Palestine is a historic and beautiful travel destination with great tourism potential. However, travelers often face challenges like limited information, fragmented booking systems, and language barriers. To address these issues, the "Palestine Gate" project aims to simplify travel and booking in Palestine.</p>
+            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"></span></p>
           </div>
 
         </div>
