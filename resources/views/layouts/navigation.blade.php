@@ -19,7 +19,9 @@
                   <div class="col-md-6 mx-auto">
                     <ul class="list-unstyled menu">
                       <li class="active"><a href="index.html">Home</a></li>
-                      <li><a href="Services.html">Services</a></li>
+                      <li><a href="Services">Services</a></li>
+
+                    </a>
                       <li><a href="AboutUs.html">About Us</a></li>
                       <li><a href="ContactUs.html">Contact Us</a></li>
                      @if (Auth::check())

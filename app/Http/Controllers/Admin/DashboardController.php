@@ -11,7 +11,7 @@ class DashboardController extends Controller
         return view('admin.dashboard');
     }
 
-    public function test(){
-        return view('test');
+    public function services(){
+        return view('Services');
     }
 }
