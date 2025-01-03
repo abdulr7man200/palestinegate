@@ -25,8 +25,79 @@
     <link href="{{ asset('admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #e9ecef; /* Softer hover effect */
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ced4da; /* Subtle border color */
+            padding: 0.75rem;
+            vertical-align: middle;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f8f9fa; /* Light gray for striped rows */
+        }
+
+        .table {
+            margin-bottom: 0;
+            font-size: 0.9rem; /* Slightly smaller font size */
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+        .card-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 1rem;
+            background-color: #007bff; /* Blue header */
+            color: white;
+        }
+
+        .btn-primary {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .d-flex {
+            display: flex !important;
+        }
+
+        .justify-content-between {
+            justify-content: space-between !important;
+        }
+
+        .align-items-center {
+            align-items: center !important;
+        }
+
+        @media (max-width: 768px) {
+            .table th,
+            .table td {
+                font-size: 0.85rem; /* Adjust font size for smaller screens */
+                padding: 0.5rem;
+            }
+
+            #addNewUserBtn {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .card-header {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    @stack('styles')
 </head>
 <body class="animsition">
     <div class="page-wrapper">
@@ -37,7 +108,7 @@
             @yield('content')
         </div>
     </div>
-    <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('admin/vendor/bootstrap-4.1/popper.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/slick/slick.min.js') }}"></script>
@@ -50,8 +121,10 @@
     <script src="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('admin/vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/select2/select2.min.js') }}"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
     <script src="{{ asset('admin/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
