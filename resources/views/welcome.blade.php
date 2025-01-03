@@ -100,7 +100,6 @@
             <p class="mb-4">Palestine is a historic and beautiful travel destination with great tourism potential. However, travelers often face challenges like limited information, fragmented booking systems, and language barriers. To address these issues, the "Palestine Gate" project aims to simplify travel and booking in Palestine.</p>
             <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"></span></p>
           </div>
-
         </div>
       </div>
     </section>
