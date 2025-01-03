@@ -1,7 +1,3 @@
-
-
-
-        <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
@@ -107,4 +103,3 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
