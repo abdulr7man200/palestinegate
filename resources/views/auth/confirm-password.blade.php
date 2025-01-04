@@ -42,9 +42,7 @@
                   <a href="#!" class="link-secondary text-decoration-none">Forgot password</a>
                 </div>
               </div>
-            </div>
-  
-            
+            </div>           
           </div>
         </div>
       </div>
