@@ -5,13 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,7 +23,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus');
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
-Route::get('/welcome', [DashboardController::class, 'home'])->name('welcome');
+Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
+Route::get('/Services', [DashboardController::class, 'Services'])->name('Services');
+Route::get('/stays', [DashboardController::class, 'stays'])->name('stays');
+Route::get('/cars', [DashboardController::class, 'cars'])->name('cars');
 
 
 

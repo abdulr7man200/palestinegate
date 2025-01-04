@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
-            <h1 class="heading mb-3">Contact</h1>
+            <h1 class="heading mb-3">Contact Us</h1>
             
           </div>
         </div>

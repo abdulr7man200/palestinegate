@@ -17,5 +17,19 @@ class DashboardController extends Controller
     public function aboutus(){
         return view('aboutus');
     }
+    public function welcome(){
+        return view('welcome');
+    }
+ 
+    public function Services(){
+        return view('Services');
+    }
+    public function stays(){
+        return view('stays');
+    }
+    public function cars(){
+        return view('cars');
+    }
+    
 
 }
