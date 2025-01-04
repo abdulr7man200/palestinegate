@@ -3,16 +3,12 @@
 
 
 
-    <section class="site-hero inner-page overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <section class="site-hero inner-page overlay" style="background-image: url('{{ url('Frontend/images/haram.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
             <h1 class="heading mb-3">Contact</h1>
-            <ul class="custom-breadcrumbs mb-4">
-              <li><a href="index.html">Home</a></li>
-              <li>&bullet;</li>
-              <li>Contact</li>
-            </ul>
+            
           </div>
         </div>
       </div>
@@ -59,14 +55,13 @@
                 </div>
               </div>
             </form>
-
           </div>
           <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
             <div class="row">
               <div class="col-md-10 ml-auto contact-info">
-                <p><span class="d-block">Address:</span> <span> 98 West 21th Street, Suite 721 New York NY 10016</span></p>
-                <p><span class="d-block">Phone:</span> <span> (+1) 234 4567 8910</span></p>
-                <p><span class="d-block">Email:</span> <span> info@domain.com</span></p>
+                <p><span class="d-block">Address:</span> <span> Arab American Uneversity</span></p>
+                <p><span class="d-block">Phone:</span> <span> 059123456789</span></p>
+                <p><span class="d-block">Email:</span> <span> bookingsystem@gmail.com</span></p>
               </div>
             </div>
           </div>

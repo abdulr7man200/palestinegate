@@ -91,9 +91,9 @@
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
             <figure class="img-absolute">
-              <img src="images/food-1.jpg" alt="Image" class="img-fluid">
+              <img src="{{ url("Frontend/images/JerusalemHotel.jpg")}}" alt="Image" class="img-fluid">
             </figure>
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid rounded">
+            <img src="{{ url("Frontend/images/JerBed.jpeg")}}" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
@@ -104,6 +104,7 @@
       </div>
     </section>
 
+    
     <section class="section slider-section bg-light">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
@@ -116,25 +117,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
               </div>
             </div>
           </div>
@@ -142,6 +143,86 @@
         </div>
       </div>
     </section>
+    <section class="section slider-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Recommended</h2>
+            <p data-aos="fade-up" data-aos-delay="100">We recommend to try</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="slider-item">
+                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section slider-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Trending</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the Trending we have</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="slider-item">
+                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
 
     <section class="section testimonial-section">
       <div class="container">
@@ -154,9 +235,7 @@
           <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+        
               <blockquote>
 
                 <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
@@ -165,9 +244,7 @@
             </div>
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+      
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
               </blockquote>
@@ -175,9 +252,7 @@
             </div>
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+  
               <blockquote>
 
                 <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
@@ -187,9 +262,7 @@
 
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+        
               <blockquote>
 
                 <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
@@ -198,9 +271,7 @@
             </div>
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+        
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
               </blockquote>
@@ -208,9 +279,7 @@
             </div>
 
             <div class="testimonial text-center slider-item">
-              <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
-              </div>
+       
               <blockquote>
 
                 <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>

@@ -10,7 +10,6 @@
             <span></span>
             <span></span>
           </div>
-          <!-- END menu-toggle -->
 
           <div class="site-navbar js-site-navbar">
             <nav role="navigation">
@@ -22,10 +21,10 @@
                       <li><a href="Services">Services</a></li>
 
                     </a>
-                      <li><a href="AboutUs.html">About Us</a></li>
-                      <li><a href="ContactUs.html">Contact Us</a></li>
+                      <li><a href="{{route("aboutus")}}">About Us</a></li>
+                      <li><a href="{{ route ("contactus")}}">Contact Us</a></li>
                      @if (Auth::check())
-                     <li>
+                     <li> 
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>

@@ -21,6 +21,16 @@
           
           
         </div>
+        <p class="col-md-6 text-left">
+          Supervised By : &copy; Nizzar Shehab <i class="icon-heart-o" aria-hidden="true"></i>
+          <br> 
+          Made By: &copy; Abdulrhman Nihad <i class="icon-heart-o" aria-hidden="true"></i>
+          <br>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &copy; Ahmed Wishahi <i class="icon-heart-o" aria-hidden="true"></i>
+          <br>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &copy; Amal Abed <i class="icon-heart-o" aria-hidden="true"></i>
+
+        </p>
       </div>
       
     </div>

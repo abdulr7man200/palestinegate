@@ -26,7 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/services', [DashboardController::class, 'services'])->name('services');
+Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus');
+Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
+Route::get('/welcome', [DashboardController::class, 'home'])->name('welcome');
 
 
 
