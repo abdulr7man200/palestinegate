@@ -7,6 +7,31 @@ body {
   color: #6c757d;
   position: relative; }
 
+  .filter-content {
+    display: none;
+  }
+  
+  .filter-content:not(.d-none) {
+    display: block;
+  }
+  
+  .btn.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .filter-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .row.justify-content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 ::-moz-selection {
   color: #fff;
   background: #ffba5a; }
