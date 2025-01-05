@@ -27,6 +27,9 @@
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/jquery.dataTables.min.css">
+
+
     <style>
         .table-hover tbody tr:hover {
             background-color: #e9ecef; /* Softer hover effect */

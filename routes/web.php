@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\CarsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,7 +27,7 @@ Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus')
 Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
 Route::get('/Services', [DashboardController::class, 'Services'])->name('Services');
 Route::get('/stays', [DashboardController::class, 'stays'])->name('stays');
-Route::get('/cars', [DashboardController::class, 'cars'])->name('cars');
+Route::get('/showcars', [DashboardController::class, 'cars'])->name('showcars');
 
 
 
@@ -41,6 +42,20 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::put('/update/{id?}', [UsersController::class, 'update'])->name('update');
         Route::post('/active/{id?}', [UsersController::class, 'toggleactive'])->name('toggleactive');
     });
+
+});
+
+Route::middleware(['auth', 'role:admin|manager'])->group(function () {
+
+
+    Route::prefix('cars')->name('cars.')->group(function () {
+        Route::get('/', [CarsController::class, 'index'])->name('index');
+        Route::post('/create', [CarsController::class,'store'])->name('store');
+        Route::get('/edit/{id?}', [CarsController::class, 'edit'])->name('edit');
+        Route::put('/update/{id?}', [CarsController::class, 'update'])->name('update');
+        Route::delete('/destroy/{id?}', [CarsController::class, 'destroy'])->name('destroy');
+    });
+
 
 });
 

@@ -14,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_id');
-            $table->float('pricePerNight');
+            $table->unsignedBigInteger('stay_id');
+            $table->float('pricepernight');
             $table->string('availability');
-            $table->foreign('property_id')->references('id')->on('propeties')->onDelete('cascade');
+            $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
             $table->timestamps();
         });
     }

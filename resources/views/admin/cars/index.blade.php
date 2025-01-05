@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row m-t-30">
                 <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
-                    <h3 class="mb-0">User Management</h3>
+                    <h3 class="mb-0">Cars Management</h3>
                     <button class="btn btn-primary" id="addNewUserBtn" data-toggle="modal" data-target="#addModal">Add New</button>
                 </div>
 
@@ -13,7 +13,7 @@
                     <!-- DATA TABLE-->
                     <div class="card">
                         <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0 text-white">Users</h4>
+                            <h4 class="mb-0 text-white">Cars</h4>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -29,8 +29,8 @@
 </div>
 
 
-@include('admin.users.create')
-@include('admin.users.edit')
+@include('admin.cars.create')
+@include('admin.cars.edit')
 
 @endsection
 @push('scripts')
@@ -38,6 +38,6 @@
 
 {!! $dataTable->scripts() !!}
 
-<script src="{{ asset('ajax/users.js') }}?={{ time() }}"></script>
+<script src="{{ asset('ajax/cars.js') }}?={{ time() }}"></script>
 
 @endpush
