@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('propety_pics', function (Blueprint $table) {
             $table->id();
-            $table->string("path");     
-            $table->unsignedBigInteger("PropetyID");
-            $table->foreign("PropetyID")->references("id")->on("propeties")->onDelete('cascade');
-      
+            $table->string("path");
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references("id")->on('propeties')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

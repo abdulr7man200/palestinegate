@@ -29,13 +29,16 @@ class UsersDataTable extends DataTable
                 : '<button class="btn btn-sm btn-secondary toggle-active" data-id="' . $user->id . '"><i class="fas fa-toggle-off"></i></button>';
 
             // Action for editing (returning data-id only)
-            $editButton = '<button class="btn btn-sm btn-warning edit-user" data-id="' . $user->id . '"><i class="fas fa-edit"></i></button>';
+            $editButton = '<button class="btn btn-sm btn-warning edit-data" data-id="' . $user->id . '"><i class="fas fa-edit"></i></button>';
 
             // Return the toggle button and edit button with data-id only
             return $editButton . ' ' . $toggleActiveButton;
         })
             ->addColumn('role', function ($user) {
                 return $user->roles->pluck('name')->first() ?? 'N/A';
+            })
+            ->editColumn('active', function ($row) {
+                return $row->active? 'Active' : 'InActive';
             })
             ->setRowId('id');
     }
@@ -82,6 +85,7 @@ class UsersDataTable extends DataTable
             Column::make('email'),
             Column::make('phone'),
             Column::make('date_of_birth'),
+            Column::make('active'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

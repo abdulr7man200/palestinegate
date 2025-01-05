@@ -36,7 +36,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UsersController::class, 'index'])->name('index');
+        Route::post('/create', [UsersController::class,'store'])->name('store');
+        Route::get('/edit/{id?}', [UsersController::class, 'edit'])->name('edit');
+        Route::put('/update/{id?}', [UsersController::class, 'update'])->name('update');
+        Route::post('/active/{id?}', [UsersController::class, 'toggleactive'])->name('toggleactive');
     });
+
 });
 
 require __DIR__ . '/auth.php';

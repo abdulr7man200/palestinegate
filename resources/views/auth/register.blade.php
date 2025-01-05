@@ -24,7 +24,7 @@
                           <p class="text-sm text-danger mt-1">{{ $message }}</p>
                         @enderror
                       </div>
-      
+
                       <!-- Email -->
                       <div class="col-12">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -33,16 +33,16 @@
                           <p class="text-sm text-danger mt-1">{{ $message }}</p>
                         @enderror
                       </div>
-      
+
                       <!-- Date of Birth -->
                       <div class="col-12">
-                        <label for="dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" name="dob" id="dob" value="{{ old('dob') }}" required>
-                        @error('dob')
+                        <label for="date_of_birth" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ old('date_of_birth') }}" required>
+                        @error('date_of_birth')
                           <p class="text-sm text-danger mt-1">{{ $message }}</p>
                         @enderror
                       </div>
-      
+
                       <!-- Phone Number -->
                       <div class="col-12">
                         <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
@@ -51,7 +51,7 @@
                           <p class="text-sm text-danger mt-1">{{ $message }}</p>
                         @enderror
                       </div>
-      
+
                       <!-- Password -->
                       <div class="col-12">
                         <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
@@ -60,7 +60,7 @@
                           <p class="text-sm text-danger mt-1">{{ $message }}</p>
                         @enderror
                       </div>
-      
+
                       <!-- Confirm Password -->
                       <div class="col-12">
                         <label for="password_confirmation" class="form-label">Confirm Password <span class="text-danger">*</span></label>
@@ -70,7 +70,7 @@
                         @enderror
                       </div>
 
-      
+
                       <!-- Submit Button -->
                       <div class="col-12">
                         <div class="d-grid">
@@ -79,7 +79,7 @@
                       </div>
                     </div>
                   </form>
-      
+
                   <div class="row">
                     <div class="col-12">
                       <hr class="mt-5 mb-4 border-secondary-subtle">
@@ -89,12 +89,12 @@
                       </div>
                     </div>
                   </div>
-      
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </x-guest-layout>
-      
+
 </x-guest-layout>

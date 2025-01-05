@@ -16,18 +16,16 @@ return new class extends Migration
         Schema::create('propeties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('Type');
+            $table->string('type');
             $table->string('description');
             $table->string("city");
-            $table->integer('streetAddress');
+            $table->integer('streetaddress');
             $table->string('amenities');
             $table->float('price');
             $table->integer('numberofbedrooms');
             $table->integer('maxnumofguests');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
             $table->timestamps();
         });
     }

@@ -3,11 +3,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                <h5 class="modal-title" id="addUserModalLabel">Add New</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addForm">
+                <form id="addForm" action="{{ route('users.store') }}">
                     @csrf
 
                     <!-- Roles -->
@@ -46,8 +46,14 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password Confirmation</label>
+                        <input type="password" class="form-control" id="password" name="password_confirmation" required>
+                    </div>
+
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">Save User</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>

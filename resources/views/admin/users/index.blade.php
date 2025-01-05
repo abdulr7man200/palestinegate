@@ -6,7 +6,7 @@
             <div class="row m-t-30">
                 <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
                     <h3 class="mb-0">User Management</h3>
-                    <button class="btn btn-primary" id="addNewUserBtn" data-toggle="modal" data-target="#addModal">Add New User</button>
+                    <button class="btn btn-primary" id="addNewUserBtn" data-toggle="modal" data-target="#addModal">Add New</button>
                 </div>
 
                 <div class="col-md-12">
@@ -37,4 +37,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/jquery.dataTables.min.css">
 
 {!! $dataTable->scripts() !!}
+
+<script src="{{ asset('ajax/users.js') }}?={{ time() }}"></script>
+
 @endpush

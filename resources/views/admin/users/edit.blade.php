@@ -7,11 +7,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editForm">
+                <form id="editForm" >
                     @csrf
 
-                    <!-- User ID (Hidden) -->
-                    <input type="hidden" id="edit_user_id" name="id">
+                    <input type="hidden" id="edit_id" name="id">
 
                     <!-- Roles -->
                     <div class="mb-3">
@@ -49,6 +48,11 @@
                     <div class="mb-3">
                         <label for="edit_password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="edit_password" name="password">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password Confirmation</label>
+                        <input type="password" class="form-control" id="password" name="password_confirmation">
                     </div>
 
                     <!-- Submit Button -->

@@ -26,6 +26,7 @@
     <link href="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
     <style>
         .table-hover tbody tr:hover {
             background-color: #e9ecef; /* Softer hover effect */
@@ -122,6 +123,8 @@
     <script src="{{ asset('admin/vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/select2/select2.min.js') }}"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <!-- Include SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="{{ asset('admin/js/main.js') }}"></script>
     @stack('scripts')
