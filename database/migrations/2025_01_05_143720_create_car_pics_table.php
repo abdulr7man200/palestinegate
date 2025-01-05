@@ -8,16 +8,14 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('room_pics', function (Blueprint $table) {
+        Schema::create('car_pics', function (Blueprint $table) {
             $table->id();
             $table->string("path");     
-            $table->unsignedBigInteger("room_id");
-            $table->foreign("room_id")->references("id")->on("rooms")->onDelete('cascade');
+            $table->unsignedBigInteger("car_id");
+            $table->foreign("car_id")->references("id")->on("cars")->onDelete('cascade');
       
             $table->timestamps();
         });
@@ -25,12 +23,9 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('room_pics');
+        Schema::dropIfExists('car_pics');
     }
 };
-

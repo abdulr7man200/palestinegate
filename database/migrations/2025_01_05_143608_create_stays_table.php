@@ -8,37 +8,30 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('propeties', function (Blueprint $table) {
+        Schema::create('stays', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('Type');
-            $table->string('description');
+            $table->enum('type', ['apartment', 'hotel', 'chalet']);
+            $table->text('description'); 
             $table->string("city");
-            $table->integer('streetAddress');
-            $table->string('amenities');
-            $table->float('price');
-            $table->integer('numberofbedrooms');
-            $table->integer('maxnumofguests');
+            $table->string('streetaddress'); 
+            $table->decimal('price', 10, 2); 
+            $table->integer('number_of_bedrooms'); 
+            $table->integer('max_number_of_guests'); 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('propeties');
+        Schema::dropIfExists('stays');
     }
 };
