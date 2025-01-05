@@ -1,7 +1,7 @@
 (function($) {
+  'use strict';
 
-	'use strict';
-
+  // Menu Toggle
   $('.site-menu-toggle').click(function(){
     var $this = $(this);
     if ( $('body').hasClass('menu-open') ) {
@@ -15,32 +15,30 @@
     }
   });
 
-	
-	$('nav .dropdown').hover(function(){
-		var $this = $(this);
-		$this.addClass('show');
-		$this.find('> a').attr('aria-expanded', true);
-		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
-		var $this = $(this);
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			$this.find('.dropdown-menu').removeClass('show');
-	});
+  // Dropdown hover effect
+  $('nav .dropdown').hover(function(){
+    var $this = $(this);
+    $this.addClass('show');
+    $this.find('> a').attr('aria-expanded', true);
+    $this.find('.dropdown-menu').addClass('show');
+  }, function(){
+    var $this = $(this);
+    $this.removeClass('show');
+    $this.find('> a').attr('aria-expanded', false);
+    $this.find('.dropdown-menu').removeClass('show');
+  });
 
+  $('#dropdown04').on('show.bs.dropdown', function () {
+    console.log('show');
+  });
 
-
-	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
-	});
-
-  // aos
+  // Initialize AOS
   AOS.init({
     duration: 1000
   });
 
-	// home slider
-	$('.home-slider').owlCarousel({
+  // Home Slider (Owl Carousel)
+  $('.home-slider').owlCarousel({
     loop:true,
     autoplay: true,
     margin:10,
@@ -65,11 +63,11 @@
         nav:true
       }
     }
-	});
+  });
 
-	// owl carousel
-	var majorCarousel = $('.js-carousel-1');
-	majorCarousel.owlCarousel({
+  // Carousel for major items
+  var majorCarousel = $('.js-carousel-1');
+  majorCarousel.owlCarousel({
     loop:true,
     autoplay: true,
     stagePadding: 7,
@@ -94,18 +92,16 @@
         nav:true,
         loop:false
       }
-  	}
-	});
+    }
+  });
 
-	// owl carousel
-	var major2Carousel = $('.js-carousel-2');
-	major2Carousel.owlCarousel({
+  // Carousel for major2 items
+  var major2Carousel = $('.js-carousel-2');
+  major2Carousel.owlCarousel({
     loop:true,
     autoplay: true,
     stagePadding: 7,
     margin: 20,
-    // animateOut: 'fadeOut',
-    // animateIn: 'fadeIn',
     nav: true,
     autoplayHoverPause: true,
     autoHeight: true,
@@ -126,9 +122,10 @@
         nav:true,
         loop:false
       }
-  	}
-	});
+    }
+  });
 
+  // Stellar.js Initialization
   var siteStellar = function() {
     $(window).stellar({
       responsive: false,
@@ -138,9 +135,10 @@
       hideDistantElements: false,
       scrollProperty: 'scroll'
     });
-  }
+  };
   siteStellar();
 
+  // Smooth Scroll for anchor links
   var smoothScroll = function() {
     var $root = $('html, body');
 
@@ -150,9 +148,10 @@
       }, 500);
       return false;
     });
-  }
+  };
   smoothScroll();
 
+  // Date and Time picker initialization
   var dateAndTime = function() {
     $('#m_date').datepicker({
       'format': 'm/d/yyyy',
@@ -166,9 +165,8 @@
   };
   dateAndTime();
 
-
+  // Window scroll effects
   var windowScroll = function() {
-
     $(window).scroll(function(){
       var $win = $(window);
       if ($win.scrollTop() > 200) {
@@ -176,17 +174,13 @@
       } else {
         $('.js-site-header').removeClass('scrolled');
       }
-
     });
-
   };
   windowScroll();
 
-
+  // Go to top functionality
   var goToTop = function() {
-
     $('.js-gotop').on('click', function(event){
-      
       event.preventDefault();
 
       $('html, body').animate({
@@ -197,17 +191,29 @@
     });
 
     $(window).scroll(function(){
-
       var $win = $(window);
       if ($win.scrollTop() > 200) {
         $('.js-top').addClass('active');
       } else {
         $('.js-top').removeClass('active');
       }
-
     });
-  
   };
+  goToTop();
 
+  // Toggle Stays and Cars Forms
+  document.getElementById('stays-btn').addEventListener('click', function () {
+    document.getElementById('stays-form').classList.remove('d-none');
+    document.getElementById('cars-form').classList.add('d-none');
+    this.classList.add('active');
+    document.getElementById('cars-btn').classList.remove('active');
+  });
+
+  document.getElementById('cars-btn').addEventListener('click', function () {
+    document.getElementById('cars-form').classList.remove('d-none');
+    document.getElementById('stays-form').classList.add('d-none');
+    this.classList.add('active');
+    document.getElementById('stays-btn').classList.remove('active');
+  });
 
 })(jQuery);

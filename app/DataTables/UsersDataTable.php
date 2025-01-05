@@ -22,7 +22,21 @@ class UsersDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'users.action')
+        ->addColumn('action', function ($user) {
+            // Action for toggling active status
+            $toggleActiveButton = $user->active
+                ? '<button class="btn btn-sm btn-success toggle-active" data-id="' . $user->id . '"><i class="fas fa-toggle-on"></i></button>'
+                : '<button class="btn btn-sm btn-secondary toggle-active" data-id="' . $user->id . '"><i class="fas fa-toggle-off"></i></button>';
+
+            // Action for editing (returning data-id only)
+            $editButton = '<button class="btn btn-sm btn-warning edit-user" data-id="' . $user->id . '"><i class="fas fa-edit"></i></button>';
+
+            // Return the toggle button and edit button with data-id only
+            return $editButton . ' ' . $toggleActiveButton;
+        })
+            ->addColumn('role', function ($user) {
+                return $user->roles->pluck('name')->first() ?? 'N/A';
+            })
             ->setRowId('id');
     }
 
@@ -40,7 +54,7 @@ class UsersDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('users-table')
+                    ->setTableId('table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
