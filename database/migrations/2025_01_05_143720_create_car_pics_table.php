@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('propety_pics', function (Blueprint $table) {
             $table->id();
-            $table->string("path");
-            $table->unsignedBigInteger("PropetyID");
-            $table->foreign("PropetyID")->references("id")->on("propeties")->onDelete('cascade');
+            $table->string('path');
+            $table->unsignedBigInteger("car_id");
+            $table->foreign("car_id")->references("id")->on("cars")->onDelete('cascade');
 
             $table->timestamps();
         });
