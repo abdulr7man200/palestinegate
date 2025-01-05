@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('propety_payments', function (Blueprint $table) {
+        Schema::create('propety_pics', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_id');
-            $table->date("payment_date");
-            $table->decimal("amount", 10, 2);
-            $table->string("paymentStatus");
-            $table->foreign('property_id')->references('id')->on('propety_bookings')->onDelete('cascade');
+            $table->string("path");
+            $table->unsignedBigInteger("PropetyID");
+            $table->foreign("PropetyID")->references("id")->on("propeties")->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('propety_payments');
+        Schema::dropIfExists('propety_pics');
     }
 };

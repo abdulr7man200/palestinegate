@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +12,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_payments', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('carBooking_id');
-            $table->foreign('carBooking_id')->references('id')->on('car_bookings')->onDelete('cascade');
-            $table->date("paymentDate");
-            $table->decimal("amount");
-            $table->string("paymentStatus");
+            $table->unsignedBigInteger('property_id');
+            $table->float('pricePerNight');
+            $table->string('availability');
+            $table->foreign('property_id')->references('id')->on('propeties')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_payments');
+        Schema::dropIfExists('rooms');
     }
 };

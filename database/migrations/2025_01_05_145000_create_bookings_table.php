@@ -8,33 +8,29 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('car_bookings', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('entity_id'); // Polymorphic representation
             $table->unsignedBigInteger('user_id');
-            $table->string("bookingStatus");
+            $table->enum('type', ['stay', 'car']);
+            $table->integer('number_of_guests')->nullable(); // Relevant for properties
             $table->date('start_date');
             $table->date('end_date');
-            $table->decimal('total_price', 8, 2);
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->decimal('price', 10, 2); 
+            $table->enum('booking_status', ['pending', 'confirmed', 'canceled']); 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('car_bookings');
+        Schema::dropIfExists('bookings');
     }
 };
