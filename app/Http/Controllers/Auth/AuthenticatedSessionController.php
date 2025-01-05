@@ -28,6 +28,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (auth()->user()->hasRole('manager')) {
+            return redirect()->intended(route('cars.index'));
+        }
+
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

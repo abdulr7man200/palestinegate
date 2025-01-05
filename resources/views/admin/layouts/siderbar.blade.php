@@ -25,9 +25,20 @@
                                 </li>
                             </ul>
                         </li> --}}
+                        @role('admin')
+                        <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard') }}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
                         <li class="{{ Route::is('users.index') ? 'active' : '' }}">
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>Users</a>
+                        </li>
+                        @endrole
+
+                        <li class="{{ Route::is('cars.index') ? 'active' : '' }}">
+                            <a href="{{ route('cars.index') }}">
+                                <i class="fas fa-car"></i>Cars</a>
                         </li>
 
 
