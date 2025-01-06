@@ -19,7 +19,7 @@
                     <ul class="list-unstyled menu">
                       <li class="active"><a href="{{route("welcome")}}">Home</a></li>
                       <li><a href="{{ route("Services")}}">Services</a></li>
-                      <li><a href="{{ route("stays")}}">Stays</a></li>
+                      <li><a href="{{ route("showstays")}}">Stays</a></li>
                       <li><a href="{{ route("showcars")}}">Cars</a></li>
                       <li><a href="{{route("aboutus")}}">About Us</a></li>
                       <li><a href="{{ route ("contactus")}}">Contact Us</a></li>

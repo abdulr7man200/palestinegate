@@ -4,6 +4,7 @@ $(document).ready(function() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
     // Handle form submission
     $('#addForm').on('submit', function(e) {
         e.preventDefault();
@@ -22,7 +23,7 @@ $(document).ready(function() {
             success: function(response) {
                 $('#addModal').modal('hide');
                 $('#addForm')[0].reset();
-                alert('created successfully!');
+                alert('Created successfully!');
                 $('#table').DataTable().ajax.reload(null, false);
             },
             error: function(xhr) {
@@ -37,37 +38,42 @@ $(document).ready(function() {
             }
         });
     });
+
     $(document).on('click', '.edit-data', function() {
         let dataId = $(this).data('id');
         $.ajax({
-            url: `/cars/edit/${dataId}`,
+            url: `/stays/edit/${dataId}`,
             method: 'GET',
             success: function(response) {
                 const data = response.data;
 
-                // Populate user details
+                // Populate stay details
                 $('#edit_id').val(data.id);
-                $('#edit-type').val(data.type);
-                $('#edit-model').val(data.model);
-                $('#edit-year').val(data.year);
-                $('#edit-price_per_day').val(data.price_per_day);
+                $('#edit-name').val(data.name);
+                $('#edit-Type').val(data.Type);
                 $('#edit-description').val(data.description);
-                $('#edit-location').val(data.location);
+                $('#edit-city').val(data.city);
+                $('#edit-streetaddress').val(data.streetaddress);
+                $('#edit-amenities').val(data.amenities);
+                $('#edit-price').val(data.price);
+                $('#edit-numberofbedrooms').val(data.numberofbedrooms);
+                $('#edit-maxnumofguests').val(data.maxnumofguests);
 
                 // Show the modal
                 $('#editModal').modal('show');
             },
             error: function() {
-                alert('Failed to fetch user data.');
+                alert('Failed to fetch stay data.');
             }
         });
     });
+
     $('#editForm').on('submit', function(e) {
         e.preventDefault();
 
         let formData = $(this).serialize();
-        let dataId = $('#edit_id').val(); // Get the user ID
-        let formAction = `/cars/update/${dataId}`; // Laravel PUT route for update
+        let dataId = $('#edit_id').val(); // Get the stay ID
+        let formAction = `/stays/update/${dataId}`; // Laravel PUT route for update
 
         $('.form-control').removeClass('is-invalid');
         $('.invalid-feedback').remove();
@@ -80,7 +86,7 @@ $(document).ready(function() {
                 // Handle success
                 $('#editModal').modal('hide'); // Hide the modal
                 $('#editForm')[0].reset(); // Reset the form
-                alert('updated successfully!');
+                alert('Updated successfully!');
                 $('#table').DataTable().ajax.reload(null, false); // Reload DataTable
             },
             error: function(xhr) {
@@ -96,9 +102,10 @@ $(document).ready(function() {
             }
         });
     });
+
     // Bind the delete button
     $(document).on('click', '.delete-data', function() {
-        var carId = $(this).data('id'); // Get the car ID from the button
+        var stayId = $(this).data('id'); // Get the stay ID from the button
 
         // Show SweetAlert confirmation
         Swal.fire({
@@ -112,7 +119,7 @@ $(document).ready(function() {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '/cars/destroy/' + carId, // The route for the destroy action
+                    url: '/stays/destroy/' + stayId, // The route for the destroy action
                     method: 'DELETE',
                     success: function(response) {
                         // Show success message
@@ -128,7 +135,7 @@ $(document).ready(function() {
                         // Show error message
                         Swal.fire(
                             'Error!',
-                            'There was an issue deleting the car.',
+                            'There was an issue deleting the stay.',
                             'error'
                         );
                     }

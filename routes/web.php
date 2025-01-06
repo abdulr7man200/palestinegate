@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CarsController;
+use App\Http\Controllers\Admin\StaysController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,7 +27,7 @@ Route::get('/contactus', [DashboardController::class, 'contactus'])->name('conta
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
 Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
 Route::get('/Services', [DashboardController::class, 'Services'])->name('Services');
-Route::get('/stays', [DashboardController::class, 'stays'])->name('stays');
+Route::get('/showstays', [DashboardController::class, 'stays'])->name('showstays');
 Route::get('/showcars', [DashboardController::class, 'cars'])->name('showcars');
 
 
@@ -58,5 +59,18 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
 
 
 });
+
+Route::middleware(['auth', 'role:admin|manager'])->group(function () {
+
+    Route::prefix('stays')->name('stays.')->group(function () {
+        Route::get('/', [StaysController::class, 'index'])->name('index');
+        Route::post('/create', [StaysController::class,'store'])->name('store');
+        Route::get('/edit/{id?}', [StaysController::class, 'edit'])->name('edit');
+        Route::put('/update/{id?}', [StaysController::class, 'update'])->name('update');
+        Route::delete('/destroy/{id?}', [StaysController::class, 'destroy'])->name('destroy');
+    });
+
+});
+
 
 require __DIR__ . '/auth.php';

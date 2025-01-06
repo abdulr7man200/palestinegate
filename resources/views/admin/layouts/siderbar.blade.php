@@ -34,13 +34,20 @@
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>Users</a>
                         </li>
+                   
                         @endrole
+                        
 
                         <li class="{{ Route::is('cars.index') ? 'active' : '' }}">
                             <a href="{{ route('cars.index') }}">
                                 <i class="fas fa-car"></i>Cars</a>
                         </li>
 
+                        <li class="{{ Route::is('stays.index') ? 'active' : '' }}">
+                            <a href="{{ route('stays.index') }}">
+                                <i class="fas fa-hotel"></i>Stays</a>
+                        </li>
+                        
 
                     </ul>
                 </nav>
