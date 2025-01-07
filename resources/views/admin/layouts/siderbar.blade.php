@@ -48,6 +48,11 @@
                                 <i class="fas fa-hotel"></i>Stays</a>
                         </li>
                         
+                        <li class="{{ Route::is('feedback.index') ? 'active' : '' }}">
+                            <a href="{{ route('feedback.index') }}">
+                                <i class="fas fa-comments"></i>FeedBack</a>
+                        </li>
+                        
 
                     </ul>
                 </nav>

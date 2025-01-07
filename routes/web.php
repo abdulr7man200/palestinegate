@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CarsController;
 use App\Http\Controllers\Admin\StaysController;
+use App\Http\Controllers\Admin\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -71,6 +72,16 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
     });
 
 });
+
+Route::middleware(['auth', 'role:admin|manager'])->group(function () {
+
+    Route::prefix('feedback')->name('feedback.')->group(function () {
+        Route::get('/', [FeedbackController::class, 'index'])->name('index');
+        Route::delete('/destroy/{id}', [FeedbackController::class, 'destroy'])->name('destroy');
+    });
+
+});
+
 
 
 require __DIR__ . '/auth.php';
