@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#addForm').on('submit', function(e) {
         e.preventDefault();
 
-        let formData = $(this).serialize();
+        let formData = new FormData(this); // Use FormData for handling file uploads
 
         let formAction = $(this).attr('action');
 
@@ -19,6 +19,8 @@ $(document).ready(function() {
             url: formAction,
             method: "POST",
             data: formData,
+            processData: false, // Do not process data (required for FormData)
+            contentType: false, // Do not set contentType (required for FormData)
             success: function(response) {
                 $('#addModal').modal('hide');
                 $('#addForm')[0].reset();
@@ -37,6 +39,7 @@ $(document).ready(function() {
             }
         });
     });
+
     $(document).on('click', '.edit-data', function() {
         let dataId = $(this).data('id');
         $.ajax({
@@ -62,11 +65,12 @@ $(document).ready(function() {
             }
         });
     });
+
     $('#editForm').on('submit', function(e) {
         e.preventDefault();
 
-        let formData = $(this).serialize();
-        let dataId = $('#edit_id').val(); // Get the user ID
+        let formData = new FormData(this); // Use FormData to handle file uploads
+        let dataId = $('#edit_id').val(); // Get the car ID
         let formAction = `/cars/update/${dataId}`; // Laravel PUT route for update
 
         $('.form-control').removeClass('is-invalid');
@@ -74,13 +78,15 @@ $(document).ready(function() {
 
         $.ajax({
             url: formAction,
-            method: "PUT", // Use PUT method for updating
+            method: "POST", // Use POST for the request (Laravel handles PUT via `_method` field)
             data: formData,
+            processData: false, // Prevent jQuery from processing the data
+            contentType: false, // Prevent jQuery from setting content type header
             success: function(response) {
                 // Handle success
                 $('#editModal').modal('hide'); // Hide the modal
                 $('#editForm')[0].reset(); // Reset the form
-                alert('updated successfully!');
+                alert('Updated successfully!');
                 $('#table').DataTable().ajax.reload(null, false); // Reload DataTable
             },
             error: function(xhr) {
@@ -96,6 +102,7 @@ $(document).ready(function() {
             }
         });
     });
+
     // Bind the delete button
     $(document).on('click', '.delete-data', function() {
         var carId = $(this).data('id'); // Get the car ID from the button

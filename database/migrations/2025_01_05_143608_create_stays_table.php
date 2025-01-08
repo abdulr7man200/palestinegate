@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('stays', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('Type');
+            $table->enum('type', ['hotels', 'apartments', 'chales']);
             $table->string('description');
             $table->string("city");
-            $table->integer('streetaddress');
+            $table->string('streetaddress');
             $table->string('amenities');
             $table->float('price');
             $table->integer('numberofbedrooms');

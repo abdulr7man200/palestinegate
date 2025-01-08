@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CarsController;
 use App\Http\Controllers\Admin\StaysController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,26 +55,29 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
         Route::get('/', [CarsController::class, 'index'])->name('index');
         Route::post('/create', [CarsController::class,'store'])->name('store');
         Route::get('/edit/{id?}', [CarsController::class, 'edit'])->name('edit');
-        Route::put('/update/{id?}', [CarsController::class, 'update'])->name('update');
+        Route::post('/update/{id?}', [CarsController::class, 'update'])->name('update');
         Route::delete('/destroy/{id?}', [CarsController::class, 'destroy'])->name('destroy');
     });
 
 
-});
-
-Route::middleware(['auth', 'role:admin|manager'])->group(function () {
 
     Route::prefix('stays')->name('stays.')->group(function () {
         Route::get('/', [StaysController::class, 'index'])->name('index');
         Route::post('/create', [StaysController::class,'store'])->name('store');
         Route::get('/edit/{id?}', [StaysController::class, 'edit'])->name('edit');
-        Route::put('/update/{id?}', [StaysController::class, 'update'])->name('update');
+        Route::post('/update/{id?}', [StaysController::class, 'update'])->name('update');
         Route::delete('/destroy/{id?}', [StaysController::class, 'destroy'])->name('destroy');
     });
 
-});
+    Route::prefix('rooms')->name('rooms.')->group(function () {
+        Route::get('/', [RoomController::class, 'index'])->name('index');
+        Route::post('/create', [RoomController::class,'store'])->name('store');
+        Route::get('/edit/{id?}', [RoomController::class, 'edit'])->name('edit');
+        Route::post('/update/{id?}', [RoomController::class, 'update'])->name('update');
+        Route::delete('/destroy/{id?}', [RoomController::class, 'destroy'])->name('destroy');
+    });
 
-Route::middleware(['auth', 'role:admin|manager'])->group(function () {
+
 
     Route::prefix('feedback')->name('feedback.')->group(function () {
         Route::get('/', [FeedbackController::class, 'index'])->name('index');

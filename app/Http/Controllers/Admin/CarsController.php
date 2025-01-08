@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Cars;
-use App\Models\CarType;
+use App\Models\CarPics;
 use Illuminate\Http\Request;
 use App\DataTables\CarsDataTable;
 use App\Http\Controllers\Controller;
@@ -25,7 +25,8 @@ class CarsController extends Controller
             'type' => ['required', 'string'],
             'model' => ['required', 'string'],
             'year' => ['required', 'integer'],
-
+            'images' => ['required', 'array'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
         ]);
 
         $user = auth()->user();
@@ -41,6 +42,16 @@ class CarsController extends Controller
         $data->year = request('year');
         $data->save();
 
+        if (request()->has('images')) {
+            foreach (request()->file('images') as $image) {
+                $path = $image->store('car_images', 'public');
+
+                $pic = new CarPics;
+                $pic->car_id = $data->id;
+                $pic->path = $path; // Store the path
+                $pic->save();
+            }
+        }
 
 
         return response()->json(['success' => 'Successfully Created']);
@@ -71,6 +82,8 @@ class CarsController extends Controller
             'type' => ['required', 'string'],
             'model' => ['required', 'string'],
             'year' => ['required', 'integer'],
+            'images' => ['nullable', 'array'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
         ]);
 
         $user = auth()->user();
@@ -86,10 +99,36 @@ class CarsController extends Controller
         $data->save();
 
 
+        // Upload and save new images
+        if (request()->has('images')) {
+
+            // Remove old images from storage and database
+            $oldImages = $data->carPics; // Get related images
+            foreach ($oldImages as $image) {
+                $imagePath = storage_path('app/public/' . $image->path);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Remove the file from storage
+                }
+                $image->delete(); // Remove the database record
+            }
+
+
+            foreach (request()->file('images') as $image) {
+                $path = $image->store('car_images', 'public');
+
+                $pic = new CarPics;
+                $pic->car_id = $data->id;
+                $pic->path = $path; // Store the path
+                $pic->save();
+            }
+        }
+
+
         return response()->json(['success' => 'Successfully Updated']);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $data = Cars::find($id);
         if (!$data) {
             return response()->json(['error' => 'not found.'], 404);

@@ -33,6 +33,17 @@ class StaysDataTable extends DataTable
             ->editColumn('maxnumofguests', function ($row) {
                 return $row->maxnumofguests . ' Guests';
             })
+            ->addColumn('images', function ($row) {
+                $images = $row->staysPics->map(function ($pic) {
+                    $imageUrl = asset('storage/' . $pic->path);
+                    return '<a href="' . $imageUrl . '" target="_blank">
+                                <img src="' . $imageUrl . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
+                            </a>';
+                })->join(' ');
+
+                return $images;
+            })
+            ->rawColumns(['action', 'images'])
             ->setRowId('id');
     }
 
@@ -77,6 +88,7 @@ class StaysDataTable extends DataTable
     {
         return [
             Column::make('id'),
+            Column::make('images'),
             Column::make('name'),
             Column::make('type'),
             Column::make('description'),

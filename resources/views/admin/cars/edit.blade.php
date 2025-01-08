@@ -7,10 +7,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editForm" >
+                <form id="editForm" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" id="edit_id" name="id">
+
+                    <div class="mb-3">
+                        <label for="images" class="form-label">images</label>
+                        <input type="file" class="form-control" id="edit-images" name="images[]"  multiple>
+                    </div>
 
                     <div class="mb-3">
                         <label for="type" class="form-label">Type</label>

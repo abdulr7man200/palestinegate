@@ -1,16 +1,22 @@
 <!-- Edit Stay Modal -->
-<div class="modal fade" id="editStayModal" tabindex="-1" aria-labelledby="editStayModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editStayModalLabel">Edit Stay</h5>
+                <h5 class="modal-title" id="editStayModalLabel">Edit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editStayForm">
+                <form id="editForm">
                     @csrf
 
                     <input type="hidden" id="edit_id" name="id">
+
+                    <div class="mb-3">
+                        <label for="images" class="form-label">images</label>
+                        <input type="file" class="form-control" id="edit-images" name="images[]"  multiple>
+                    </div>
+
 
                     <div class="mb-3">
                         <label for="edit-name" class="form-label">Name</label>
@@ -18,8 +24,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit-type" class="form-label">Type</label>
-                        <input type="text" class="form-control" id="edit-type" name="type" required>
+                        <label for="type" class="form-label">Type</label>
+                        <select class="form-control" id="edit-type" name="type" required>
+                            <option value="">Select Type</option>
+                            <option value="hotels">Hotels</option>
+                            <option value="apartments">Apartments</option>
+                            <option value="chales">Chales</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">

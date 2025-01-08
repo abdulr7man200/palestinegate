@@ -44,22 +44,22 @@ $(document).ready(function() {
     $(document).on('click', '.edit-data', function() {
         let dataId = $(this).data('id');
         $.ajax({
-            url: `/stays/edit/${dataId}`,
+            url: `/rooms/edit/${dataId}`,
             method: 'GET',
             success: function(response) {
                 const data = response.data;
 
                 // Populate stay details
                 $('#edit_id').val(data.id);
-                $('#edit-name').val(data.name);
-                $('#edit-type').val(data.type);
-                $('#edit-description').val(data.description);
-                $('#edit-city').val(data.city);
-                $('#edit-streetaddress').val(data.streetaddress);
-                $('#edit-amenities').val(data.amenities);
-                $('#edit-price').val(data.price);
-                $('#edit-numberofbedrooms').val(data.numberofbedrooms);
-                $('#edit-maxnumofguests').val(data.maxnumofguests);
+                $('#edit-stay_id').val(data.stay_id);
+                $('#edit-beds').val(data.beds);
+                $('#edit-pricepernight').val(data.pricepernight);
+                $('#edit-room_number').val(data.room_number);
+                $('#edit-availability').val(data.availability);
+                $('#edit-has_ac').val(data.has_ac);
+                $('#edit-has_wifi').val(data.has_wifi);
+                $('#edit-has_tv').val(data.has_tv);
+
 
                 // Show the modal
                 $('#editModal').modal('show');
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
         let formData = new FormData(this);
         let dataId = $('#edit_id').val(); // Get the stay ID
-        let formAction = `/stays/update/${dataId}`; // Laravel PUT route for update
+        let formAction = `/rooms/update/${dataId}`; // Laravel PUT route for update
 
         $('.form-control').removeClass('is-invalid');
         $('.invalid-feedback').remove();
@@ -123,7 +123,7 @@ $(document).ready(function() {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '/stays/destroy/' + stayId, // The route for the destroy action
+                    url: '/rooms/destroy/' + stayId, // The route for the destroy action
                     method: 'DELETE',
                     success: function(response) {
                         // Show success message

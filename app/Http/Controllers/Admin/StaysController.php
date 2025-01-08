@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Stays;
+use App\Models\Rooms;
+use App\Models\StaysPics;
 use Illuminate\Http\Request;
 use App\DataTables\StaysDataTable;
 use App\Http\Controllers\Controller;
@@ -18,14 +20,16 @@ class StaysController extends Controller
     {
         request()->validate([
             'name' => ['required', 'string'],
-            'Type' => ['required', 'string'],
+            'type' => ['required', 'in:hotels,apartments,chales'],
             'description' => ['required', 'string'],
             'city' => ['required', 'string'],
-            'streetaddress' => ['required', 'integer'],
+            'streetaddress' => ['required', 'string'],
             'amenities' => ['required', 'string'],
             'price' => ['required', 'numeric'],
             'numberofbedrooms' => ['required', 'integer'],
             'maxnumofguests' => ['required', 'integer'],
+            'images' => ['required', 'array'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
         ]);
 
         $user = auth()->user();
@@ -33,7 +37,7 @@ class StaysController extends Controller
         $data = new Stays;
         $data->user_id = $user->id;
         $data->name = request('name');
-        $data->Type = request('Type');
+        $data->type = request('type');
         $data->description = request('description');
         $data->city = request('city');
         $data->streetaddress = request('streetaddress');
@@ -42,6 +46,17 @@ class StaysController extends Controller
         $data->numberofbedrooms = request('numberofbedrooms');
         $data->maxnumofguests = request('maxnumofguests');
         $data->save();
+
+        if (request()->has('images')) {
+            foreach (request()->file('images') as $image) {
+                $path = $image->store('stay_images', 'public');
+
+                $pic = new StaysPics;
+                $pic->stay_id = $data->id;
+                $pic->path = $path; // Store the path
+                $pic->save();
+            }
+        }
 
         return response()->json(['success' => 'Successfully Created']);
     }
@@ -63,14 +78,16 @@ class StaysController extends Controller
     {
         request()->validate([
             'name' => ['required', 'string'],
-            'Type' => ['required', 'string'],
+            'type' => ['required', 'in:hotels,apartments,chales'],
             'description' => ['required', 'string'],
             'city' => ['required', 'string'],
-            'streetaddress' => ['required', 'integer'],
+            'streetaddress' => ['required', 'string'],
             'amenities' => ['required', 'string'],
             'price' => ['required', 'numeric'],
             'numberofbedrooms' => ['required', 'integer'],
             'maxnumofguests' => ['required', 'integer'],
+            'images' => ['nullable', 'array'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
         ]);
 
         $user = auth()->user();
@@ -82,7 +99,7 @@ class StaysController extends Controller
 
         $data->user_id = $user->id;
         $data->name = request('name');
-        $data->Type = request('Type');
+        $data->type = request('type');
         $data->description = request('description');
         $data->city = request('city');
         $data->streetaddress = request('streetaddress');
@@ -91,6 +108,29 @@ class StaysController extends Controller
         $data->numberofbedrooms = request('numberofbedrooms');
         $data->maxnumofguests = request('maxnumofguests');
         $data->save();
+
+        // Upload and save new images
+        if (request()->has('images')) {
+
+            $oldImages = $data->staysPics; // Get related images
+            foreach ($oldImages as $image) {
+                $imagePath = storage_path('app/public/' . $image->path);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Remove the file from storage
+                }
+                $image->delete(); // Remove the database record
+            }
+
+
+            foreach (request()->file('images') as $image) {
+                $path = $image->store('car_images', 'public');
+
+                $pic = new StaysPics;
+                $pic->stay_id = $data->id;
+                $pic->path = $path; // Store the path
+                $pic->save();
+            }
+        }
 
         return response()->json(['success' => 'Successfully Updated']);
     }

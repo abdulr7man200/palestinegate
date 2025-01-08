@@ -7,8 +7,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addForm" action="{{ route('cars.store') }}">
+                <form id="addForm" action="{{ route('cars.store') }}" enctype="multipart/form-data">
                     @csrf
+
+                    <div class="mb-3">
+                        <label for="images" class="form-label">images</label>
+                        <input type="file" class="form-control" id="images" name="images[]" required multiple>
+                    </div>
+
 
                     <div class="mb-3">
                         <label for="type" class="form-label">Type</label>

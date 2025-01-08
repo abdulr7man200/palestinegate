@@ -1,14 +1,20 @@
 <!-- Add Stay Modal -->
-<div class="modal fade" id="addStayModal" tabindex="-1" aria-labelledby="addStayModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addStayModalLabel">Add New Stay</h5>
+                <h5 class="modal-title" id="addStayModalLabel">Add New</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addStayForm" action="{{ route('stays.store') }} " method="POST">
+                <form id="addForm" action="{{ route('stays.store') }} " method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <div class="mb-3">
+                        <label for="images" class="form-label">images</label>
+                        <input type="file" class="form-control" id="images" name="images[]" required multiple>
+                    </div>
+
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -17,7 +23,12 @@
 
                     <div class="mb-3">
                         <label for="type" class="form-label">Type</label>
-                        <input type="text" class="form-control" id="type" name="type" required>
+                        <select class="form-control" id="type" name="type" required>
+                            <option value="">Select Type</option>
+                            <option value="hotels">Hotels</option>
+                            <option value="apartments">Apartments</option>
+                            <option value="chales">Chales</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">

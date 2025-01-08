@@ -15,9 +15,16 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('stay_id');
+            $table->unsignedBigInteger('user_id');
+            $table->integer('beds'); // Number of beds
             $table->float('pricepernight');
-            $table->string('availability');
+            $table->string('room_number');
+            $table->boolean('availability')->default(true);
+            $table->boolean('has_ac')->default(false); // Air conditioning availability
+            $table->boolean('has_wifi')->default(false); // WiFi availability
+            $table->boolean('has_tv')->default(false); // TV availability
             $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

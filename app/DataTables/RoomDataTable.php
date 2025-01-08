@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Cars;
+use App\Models\Rooms;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CarsDataTable extends DataTable
+class RoomDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,21 +22,16 @@ class CarsDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function ($user) {
-
-                $editButton = '<button class="btn btn-sm btn-warning edit-data" data-id="' . $user->id . '"><i class="fas fa-edit"></i></button>';
-                $deleteButton = '<button class="btn btn-sm btn-danger delete-data" data-id="' . $user->id . '"><i class="fas fa-trash"></i></button>';
-
-                return $editButton  . ' ' . $deleteButton;
+            ->addColumn('action', function ($stay) {
+                $editButton = '<button class="btn btn-sm btn-warning edit-data" data-id="' . $stay->id . '"><i class="fas fa-edit"></i></button>';
+                $deleteButton = '<button class="btn btn-sm btn-danger delete-data" data-id="' . $stay->id . '"><i class="fas fa-trash"></i></button>';
+                return $editButton . ' ' . $deleteButton;
             })
-            ->addColumn('user', function($row){
-                return $row->user->name;
-            })
-            ->editColumn('rented', function($row){
-                return $row->rented ? 'rented' : 'unrented';
+            ->addColumn('stay', function($row){
+                return $row->stay->name;
             })
             ->addColumn('images', function ($row) {
-                $images = $row->carPics->map(function ($pic) {
+                $images = $row->room_pics->map(function ($pic) {
                     $imageUrl = asset('storage/' . $pic->path);
                     return '<a href="' . $imageUrl . '" target="_blank">
                                 <img src="' . $imageUrl . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
@@ -52,15 +47,14 @@ class CarsDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(Cars $model): QueryBuilder
+    public function query(Rooms $model): QueryBuilder
     {
         $user = auth()->user();
-        if($user->hasRole('admin')){
+        if ($user->hasRole('admin')) {
             return $model->newQuery();
-        }else{
+        } else {
             return $model->where('user_id', $user->id)->newQuery();
         }
-
     }
 
     /**
@@ -93,14 +87,14 @@ class CarsDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('images'),
-            Column::make('user'),
-            Column::make('type'),
-            Column::make('year'),
-            Column::make('model'),
-            Column::make('location'),
-            Column::make('price_per_day'),
-            Column::make('description'),
-            Column::make('rented'),
+            Column::make('stay'),
+            Column::make('beds'),
+            Column::make('pricepernight'),
+            Column::make('room_number'),
+            Column::make('availability'),
+            Column::make('has_ac'),
+            Column::make('has_wifi'),
+            Column::make('has_tv'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
@@ -115,6 +109,6 @@ class CarsDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Cars_' . date('YmdHis');
+        return 'Room_' . date('YmdHis');
     }
 }

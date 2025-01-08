@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('entity_id'); // Polymorphic representation
+            $table->unsignedBigInteger('stay_id')->nullable();
+            $table->unsignedBigInteger('car_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->enum('type', ['stay', 'car']);
-            $table->integer('number_of_guests')->nullable(); // Relevant for properties
             $table->date('start_date');
             $table->date('end_date');
-            $table->decimal('price', 10, 2); 
-            $table->enum('booking_status', ['pending', 'confirmed', 'canceled']); 
+            $table->decimal('price', 10, 2);
+            $table->enum('booking_status', ['pending', 'confirmed', 'canceled']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->timestamps();
         });
     }

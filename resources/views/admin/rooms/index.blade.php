@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row m-t-30">
                 <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
-                    <h3 class="mb-0">Stays Management</h3>
+                    <h3 class="mb-0">Rooms Management</h3>
                     <button class="btn btn-primary" id="addNewStayBtn" data-toggle="modal" data-target="#addModal">Add New</button>
                 </div>
 
@@ -13,7 +13,7 @@
                     <!-- DATA TABLE-->
                     <div class="card">
                         <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0 text-white">Stays</h4>
+                            <h4 class="mb-0 text-white">Rooms</h4>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -28,14 +28,14 @@
     </div>
 </div>
 
-@include('admin.stays.create')
-@include('admin.stays.edit')
+@include('admin.rooms.create')
+@include('admin.rooms.edit')
 
 @endsection
 @push('scripts')
 
 {!! $dataTable->scripts() !!}
 
-<script src="{{ asset('ajax/Stays.js') }}?={{ time() }}"></script>
+<script src="{{ asset('ajax/rooms.js') }}?={{ time() }}"></script>
 
 @endpush

@@ -8,6 +8,9 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
 
 class FeedbackDataTable extends DataTable
 {
@@ -20,6 +23,19 @@ class FeedbackDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'feedback.action') // Action buttons (e.g., edit, delete)
+            ->addColumn('user', function($row){
+                return $row->user->name;
+            })
+            ->addColumn('user', function($row){
+                return $row->user->name;
+            })
+            ->addColumn('booking', function($row){
+                return $row->booking->name;
+            })
+            ->editColumn('rating', function($row){
+                return '<span class="badge badge-'.$row->rating.'">'.$row->rating.'</span>';
+            })
+            ->rawColumns(['action', 'rating'])
             ->setRowId('id'); // Set row ID
     }
 
@@ -28,8 +44,7 @@ class FeedbackDataTable extends DataTable
      */
     public function query(Feedback $model): QueryBuilder
     {
-        return $model->newQuery()
-            ->select('feedback.id', 'feedback.user_id', 'feedback.booking_id', 'feedback.comment', 'feedback.rating', 'feedback.created_at', 'feedback.updated_at');
+        return $model->newQuery();
     }
 
     /**
@@ -38,10 +53,10 @@ class FeedbackDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('feedback-table')
+            ->setTableId('table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1) // Order by first column
+            ->orderBy(0, 'desc') // Order by first column
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -59,18 +74,17 @@ class FeedbackDataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            Column::make('id')->title('ID'),
+            Column::make('user')->title('User'),
+            Column::make('booking_id')->title('Booking ID'),
+            Column::make('comment')->title('Comment'),
+            Column::make('rating')->title('Rating'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
                 ->addClass('text-center'),
-            Column::make('id')->title('ID'),
-            Column::make('user_id')->title('User ID'),
-            Column::make('booking_id')->title('Booking ID'),
-            Column::make('comment')->title('Comment'),
-            Column::make('rating')->title('Rating'),
-            Column::make('created_at')->title('Created At'),
-            Column::make('updated_at')->title('Updated At'),
+
         ];
     }
 

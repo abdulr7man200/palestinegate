@@ -8,10 +8,11 @@ class Stays extends Model
 {
     public $guarded = ['id'];
 
-
-
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function staysPics(){
+        return $this->hasMany(StaysPics::class, 'stay_id');
     }
 }
 
