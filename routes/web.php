@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\CarsController;
-use App\Http\Controllers\Admin\StaysController;
-use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\CarsController;
+use App\Http\Controllers\Admin\RoomController;
+use App\Http\Controllers\Admin\StaysController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 
@@ -87,11 +88,18 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
 
     Route::prefix('contact')->name('contact.')->group(function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
-        Route::get('/show/{id}', [ContactController::class, 'show'])->name('show'); 
-        Route::delete('/destroy/{id}', [ContactController::class, 'destroy'])->name('destroy'); 
+        Route::get('/show/{id}', [ContactController::class, 'show'])->name('show');
+        Route::delete('/destroy/{id}', [ContactController::class, 'destroy'])->name('destroy');
     });
-    
-    
+
+    Route::prefix('booking')->name('booking.')->group(function () {
+        Route::get('/', [BookingController::class, 'index'])->name('index');
+        Route::get('/edit/{id?}', [BookingController::class, 'edit'])->name('edit');
+        Route::post('/update/{id?}', [BookingController::class, 'update'])->name('update');
+        Route::delete('/destroy/{id?}', [BookingController::class, 'destroy'])->name('destroy');
+    });
+
+
 
 });
 

@@ -104,7 +104,7 @@ class RoomController extends Controller
         if (!$data) {
             return response()->json(['error' => 'not found.'], 404);
         }
-        $user = auth()->user();
+
         $data->user_id = $user->id;
         $data->stay_id = request()->stay_id;
         $data->beds = request()->beds;

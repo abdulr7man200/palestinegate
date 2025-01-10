@@ -7,12 +7,18 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-            
+
                         @role('admin')
                         <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
+
+                        <li class="{{ Route::is('booking.index') ? 'active' : '' }}">
+                            <a href="{{ route('booking.index') }}">
+                                <i class="fas fa-calendar-alt"></i>Booking</a>
+                        </li>
+
                         <li class="{{ Route::is('users.index') ? 'active' : '' }}">
                             <a href="{{ route('users.index') }}">
                                 <i class="fas fa-users"></i>Users</a>
@@ -47,7 +53,7 @@
                             <a href="{{ route('rooms.index') }}">
                                 <i class="fas fa-building"></i>Rooms</a>
                         </li>
-                 
+
 
                     </ul>
                 </nav>
