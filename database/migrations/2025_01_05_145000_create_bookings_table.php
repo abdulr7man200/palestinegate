@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('stay_id')->nullable();
             $table->unsignedBigInteger('car_id')->nullable();
+            $table->unsignedBigInteger('store_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->enum('type', ['stay', 'car']);
             $table->date('start_date');
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->enum('status', ['pending', 'confirmed', 'canceled']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->timestamps();
