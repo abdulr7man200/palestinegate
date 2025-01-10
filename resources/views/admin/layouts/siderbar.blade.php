@@ -7,24 +7,7 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        {{-- <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li> --}}
+            
                         @role('admin')
                         <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}">
@@ -36,11 +19,16 @@
                         </li>
 
 
-
                         <li class="{{ Route::is('feedback.index') ? 'active' : '' }}">
                             <a href="{{ route('feedback.index') }}">
                                 <i class="fas fa-comments"></i>FeedBack</a>
                         </li>
+
+                        <li class="{{ Route::is('contact.index') ? 'active' : '' }}">
+                            <a href="{{ route('contact.index') }}">
+                                <i class="fas fa-envelope"></i>Contact</a>
+                        </li>
+
                         @endrole
 
 
@@ -59,7 +47,7 @@
                             <a href="{{ route('rooms.index') }}">
                                 <i class="fas fa-building"></i>Rooms</a>
                         </li>
-
+                 
 
                     </ul>
                 </nav>

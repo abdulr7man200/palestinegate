@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CarsController;
 use App\Http\Controllers\Admin\StaysController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\RoomController;
 use Illuminate\Support\Facades\Route;
 
@@ -83,6 +84,14 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
         Route::get('/', [FeedbackController::class, 'index'])->name('index');
         Route::delete('/destroy/{id}', [FeedbackController::class, 'destroy'])->name('destroy');
     });
+
+    Route::prefix('contact')->name('contact.')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/show/{id}', [ContactController::class, 'show'])->name('show'); 
+        Route::delete('/destroy/{id}', [ContactController::class, 'destroy'])->name('destroy'); 
+    });
+    
+    
 
 });
 
