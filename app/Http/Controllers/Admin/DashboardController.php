@@ -20,7 +20,7 @@ class DashboardController extends Controller
     public function welcome(){
         return view('welcome');
     }
- 
+
     public function Services(){
         return view('Services');
     }
@@ -30,6 +30,6 @@ class DashboardController extends Controller
     public function cars(){
         return view('cars');
     }
-    
+
 
 }

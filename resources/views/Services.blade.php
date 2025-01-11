@@ -25,7 +25,7 @@
     <section >
       <section class="container2">
         <h1 class="section-title">Stays</h1>
-  
+
         <div class="card__container slider" style="display: flex; overflow: hidden; position: relative;">
           <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
@@ -36,7 +36,7 @@
                 <a href="#" class="card__button">Read More</a>
               </div>
             </article>
-      
+
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
               <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
               <div class="card__data">
@@ -45,7 +45,7 @@
                 <a href="#" class="card__button">Read More</a>
               </div>
             </article>
-      
+
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
               <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
               <div class="card__data">
@@ -54,7 +54,7 @@
                 <a href="#" class="card__button">Read More</a>
               </div>
             </article>
-      
+
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
               <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
               <div class="card__data">
@@ -62,7 +62,7 @@
                 <h2 class="card__title">Ocean Bliss</h2>
                 <a href="#" class="card__button">Read More</a>
               </div>
-            </article>    
+            </article>
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
               <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
               <div class="card__data">
@@ -70,7 +70,7 @@
                 <h2 class="card__title">Ocean Bliss</h2>
                 <a href="#" class="card__button">Read More</a>
               </div>
-            </article>    
+            </article>
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
               <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
               <div class="card__data">
