@@ -23,11 +23,18 @@ class CarsDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($user) {
+                $userr = auth()->user();
+
+                $recommendButton = '';
 
                 $editButton = '<button class="btn btn-sm btn-warning edit-data" data-id="' . $user->id . '"><i class="fas fa-edit"></i></button>';
                 $deleteButton = '<button class="btn btn-sm btn-danger delete-data" data-id="' . $user->id . '"><i class="fas fa-trash"></i></button>';
+                if($userr->hasRole('admin')){
+                    $recommendButton = '<button class="btn btn-sm ' . ($user->is_recommended ? 'btn-success' : 'btn-secondary') . ' toggle-recommend" data-id="' . $user->id . '">'
+                    . '<i class="fas fa-star"></i> ' . ($user->is_recommended ? 'Recommended' : 'Not Recommended') . '</button>';
+                }
 
-                return $editButton  . ' ' . $deleteButton;
+                return $editButton  . ' ' . $deleteButton . ' ' . $recommendButton;
             })
             ->addColumn('user', function($row){
                 return $row->user->name;

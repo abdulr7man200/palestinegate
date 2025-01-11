@@ -5,7 +5,7 @@
 
     <!-- END head -->
 
-    <section class="site-hero overlay"          style="background-image: url('{{ url('Frontend/images/Jerusalem.jpg') }}');" 
+    <section class="site-hero overlay"          style="background-image: url('{{ url('Frontend/images/Jerusalem.jpg') }}');"
     data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
@@ -27,13 +27,13 @@
       <div class="container">
         <div class="row check-availability" id="next">
           <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-        
+
             <!-- Toggle between Cars and Stays -->
             <div class="filter-toggle mb-4 text-center">
               <button id="stays-btn" class="btn btn-primary active">Stays</button>
               <button id="cars-btn" class="btn btn-secondary">Cars</button>
             </div>
-        
+
             <!-- Forms container -->
             <div id="stays-form" class="filter-content">
               <!-- Stays Form -->
@@ -49,13 +49,13 @@
                       <option>Condo</option>
                     </select>
                   </div>
-              
+
                   <!-- City Filter -->
                   <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                     <label for="stays_city" class="font-weight-bold text-black">City</label>
                     <input type="text" id="stays_city" class="form-control" placeholder="Enter city">
                   </div>
-              
+
                   <!-- Number of Bedrooms Filter -->
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
                     <label for="bedrooms" class="font-weight-bold text-black">Number of Bedrooms</label>
@@ -66,7 +66,7 @@
                       <option>4+</option>
                     </select>
                   </div>
-              
+
                   <!-- Price Sort Filter -->
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
                     <label for="stays_price_sort" class="font-weight-bold text-black">Price</label>
@@ -76,11 +76,11 @@
                       <option>All</option>
                     </select>
                   </div>
-              
+
                 </div>
               </form>
             </div>
-        
+
             <div id="cars-form" class="filter-content d-none">
               <!-- Cars Form -->
               <form action="#">
@@ -96,13 +96,13 @@
                       <option>Luxury</option>
                     </select>
                   </div>
-              
+
                   <!-- City Filter -->
                   <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                     <label for="cars_city" class="font-weight-bold text-black">City</label>
                     <input type="text" id="cars_city" class="form-control" placeholder="Enter city">
                   </div>
-              
+
                   <!-- Price Sort Filter -->
                   <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                     <label for="cars_price_sort" class="font-weight-bold text-black">Price</label>
@@ -111,25 +111,25 @@
                       <option>Descending</option>
                     </select>
                   </div>
-              
+
                 </div>
               </form>
             </div>
-    
+
             <!-- Centered Check Availability Button -->
             <div class="row justify-content-center mt-4">
               <div class="col-md-6 col-lg-3 align-self-end">
                 <button class="btn btn-primary btn-block text-white">Check Availability</button>
               </div>
             </div>
-    
+
           </div>
         </div>
       </div>
     </section>
-    
-    
-  
+
+
+
 
     <section class="py-5 bg-light">
       <div class="container">
@@ -149,116 +149,28 @@
       </div>
     </section>
 
-    
-    <section class="section slider-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Stays & Cars</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the stays & cars we have</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-              <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <section class="section slider-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Recommended</h2>
-            <p data-aos="fade-up" data-aos-delay="100">We recommend to try</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-              <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <section class="section slider-section bg-light">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Trending</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the Trending we have</p>
+            <h2 class="heading" data-aos="fade-up">Cars</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the cars we have</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-              <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Bed.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/PalHotel.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Polo.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
-              <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="{{url("Frontend/images/Oct.jpg")}}" alt="Image placeholder" class="img-fluid"></a>
-              </div>
+                @forelse ($cars as $car)
+                    <div class="slider-item">
+                    <a href=""  ><img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+                  </div>
+                @empty
+                <div class="alert alert-warning" role="alert">
+                    No items found.
+                  </div>
+                @endforelse
+
             </div>
           </div>
 
@@ -267,76 +179,71 @@
     </section>
 
 
-
-
-    <section class="section testimonial-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">People Says</h2>
+    <section class="section slider-section bg-light">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+              <h2 class="heading" data-aos="fade-up">Stays</h2>
+              <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the stays we have</p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                  @forelse ($stays as $stay)
+                      <div class="slider-item">
+                      <a href=""  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+                    </div>
+                  @empty
+                  <div class="alert alert-warning" role="alert">
+                      No items found.
+                    </div>
+                  @endforelse
 
-            <div class="testimonial text-center slider-item">
-        
-              <blockquote>
-
-                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; Jean Smith</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-      
-              <blockquote>
-                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-  
-              <blockquote>
-
-                <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-
-            <div class="testimonial text-center slider-item">
-        
-              <blockquote>
-
-                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; Jean Smith</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-        
-              <blockquote>
-                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
-            </div>
-
-            <div class="testimonial text-center slider-item">
-       
-              <blockquote>
-
-                <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.&rdquo;</p>
-              </blockquote>
-              <p><em>&mdash; John Doe</em></p>
+              </div>
             </div>
 
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <section class="section slider-section bg-light">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+              <h2 class="heading" data-aos="fade-up">Recommended</h2>
+              <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the stays we have</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                @forelse ($recommendedItems as $recommendedItem)
+                <div class="slider-item">
+                    <a href="#">
+                        <img
+                            src="{{ $recommendedItem instanceof \App\Models\Cars ?
+                                    asset('storage/' . $recommendedItem->carPics->first()->path) :
+                                    asset('storage/' . $recommendedItem->staysPics->first()->path) }}"
+                            alt="Image placeholder"
+                            class="img-fluid"
+                            style="height: 500px;"
+                        >
+                    </a>
+                </div>
+            @empty
+                <div class="alert alert-warning" role="alert">
+                    No items found.
+                </div>
+            @endforelse
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
   </body>
 </html>

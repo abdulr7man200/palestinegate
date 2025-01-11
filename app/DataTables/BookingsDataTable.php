@@ -53,7 +53,7 @@ class BookingsDataTable extends DataTable
         if ($user->hasRole('admin')) {
             return $model->newQuery();
         } else {
-            return $model->where('user_id', $user->id)->newQuery();
+            return $model->where('store_id', $user->id)->newQuery();
         }
     }
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->boolean('rented')->default(false);
             $table->unsignedBigInteger('user_id');
+            $table->boolean('is_recommended')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

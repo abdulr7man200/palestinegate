@@ -145,4 +145,11 @@ class StaysController extends Controller
 
         return response()->json(['success' => 'Successfully Deleted']);
     }
+
+    public function isrecommended($id){
+        $data = Stays::find($id);
+        $data->is_recommended = !$data->is_recommended;
+        $data->save();
+        return response()->json(['success' => 'Successfully updated']);
+    }
 }

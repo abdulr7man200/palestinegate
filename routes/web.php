@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ContactController as userContactController;
 
 
 
@@ -36,6 +37,9 @@ Route::get('/showcars', [DashboardController::class, 'cars'])->name('showcars');
 
 
 
+Route::post('/add/contact', [userContactController::class, 'store'])->name('contactus.store');
+
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -59,6 +63,8 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
         Route::get('/edit/{id?}', [CarsController::class, 'edit'])->name('edit');
         Route::post('/update/{id?}', [CarsController::class, 'update'])->name('update');
         Route::delete('/destroy/{id?}', [CarsController::class, 'destroy'])->name('destroy');
+        Route::post('/isrecommended/{id?}', [CarsController::class, 'isrecommended'])->name('isrecommended');
+
     });
 
 
@@ -69,6 +75,7 @@ Route::middleware(['auth', 'role:admin|manager'])->group(function () {
         Route::get('/edit/{id?}', [StaysController::class, 'edit'])->name('edit');
         Route::post('/update/{id?}', [StaysController::class, 'update'])->name('update');
         Route::delete('/destroy/{id?}', [StaysController::class, 'destroy'])->name('destroy');
+        Route::post('/isrecommended/{id?}', [StaysController::class, 'isrecommended'])->name('isrecommended');
     });
 
     Route::prefix('rooms')->name('rooms.')->group(function () {

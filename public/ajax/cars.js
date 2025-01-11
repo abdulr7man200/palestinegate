@@ -143,4 +143,28 @@ $(document).ready(function() {
             }
         });
     });
+
+
+    $(document).on('click', '.toggle-recommend', function() {
+        const id = $(this).data('id');
+
+        $.ajax({
+            url: `/cars/isrecommended/${id}`, // Adjust the URL to match your route
+            method: 'POST',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'), // Include CSRF token
+            },
+            success: function(response) {
+                alert(response.success);
+                // Optionally refresh the DataTable or update the row dynamically
+                $('#table').DataTable().ajax.reload();
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+                alert('An error occurred.');
+            }
+        });
+    });
+
+
 });

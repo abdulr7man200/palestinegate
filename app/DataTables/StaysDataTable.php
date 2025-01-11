@@ -23,9 +23,19 @@ class StaysDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($stay) {
+                $userr = auth()->user();
+
+                $recommendButton = '';
+
                 $editButton = '<button class="btn btn-sm btn-warning edit-data" data-id="' . $stay->id . '"><i class="fas fa-edit"></i></button>';
                 $deleteButton = '<button class="btn btn-sm btn-danger delete-data" data-id="' . $stay->id . '"><i class="fas fa-trash"></i></button>';
-                return $editButton . ' ' . $deleteButton;
+
+                if($userr->hasRole('admin')){
+                    $recommendButton = '<button class="btn btn-sm ' . ($stay->is_recommended ? 'btn-success' : 'btn-secondary') . ' toggle-recommend" data-id="' . $stay->id . '">'
+                    . '<i class="fas fa-star"></i> ' . ($stay->is_recommended ? 'Recommended' : 'Not Recommended') . '</button>';
+                }
+
+                return $editButton  . ' ' . $deleteButton . ' ' . $recommendButton;
             })
             ->editColumn('price', function ($row) {
                 return '$' . number_format($row->price, 2);

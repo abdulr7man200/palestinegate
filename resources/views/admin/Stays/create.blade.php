@@ -37,9 +37,27 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" name="city" required>
-                    </div>
+                        <label for="city" class="font-weight-bold text-black">City</label>
+                        <select id="city" name="city" class="form-control">
+                          <option value="">Select City</option>
+                          <option value="jerusalem">Jerusalem</option>
+                          <option value="nablus">Nablus</option>
+                          <option value="ramallah">Ramallah</option>
+                          <option value="bethlehem">Bethlehem</option>
+                          <option value="hebron">Hebron</option>
+                          <option value="gaza">Gaza</option>
+                          <option value="tulkarem">Tulkarem</option>
+                          <option value="jenin">Jenin</option>
+                          <option value="tubas">Tubas</option>
+                          <option value="salfit">Salfit</option>
+                          <option value="qalqilya">Qalqilya</option>
+                          <option value="jericho">Jericho</option>
+                          <option value="ramallah">Ramallah</option>
+                          <option value="deir al-balah">Deir al-Balah</option>
+                          <option value="khan_younis">Khan Younis</option>
+                          <option value="rafah">Rafah</option>
+                        </select>
+                      </div>
 
                     <div class="mb-3">
                         <label for="streetaddress" class="form-label">Street Address</label>
