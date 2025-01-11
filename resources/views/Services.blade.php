@@ -22,75 +22,146 @@
       </a>
     </section>
 
-    <section >
-      <section class="container2">
-        <h1 class="section-title">Stays</h1>
-  
-        <div class="card__container slider" style="display: flex; overflow: hidden; position: relative;">
-          <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Vancouver Mountains, Canada</span>
-                <h2 class="card__title">The Great Path</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>
-      
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Poon Hill, Nepal</span>
-                <h2 class="card__title">Starry Night</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>
-      
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Bojcin Forest, Serbia</span>
-                <h2 class="card__title">Path Of Peace</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>
-      
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Sunset Beach, Maldives</span>
-                <h2 class="card__title">Ocean Bliss</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>    
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Sunset Beach, Maldives</span>
-                <h2 class="card__title">Ocean Bliss</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>    
-            <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-              <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
-              <div class="card__data">
-                <span class="card__description">Sunset Beach, Maldives</span>
-                <h2 class="card__title">Ocean Bliss</h2>
-                <a href="#" class="card__button">Read More</a>
-              </div>
-            </article>
-          </div>
-          <button class="slider-btn prev">
-            <span class="btn-icon">&#8249;</span>
-          </button>
-          <button class="slider-btn next">
-            <span class="btn-icon">&#8250;</span>
-          </button>
+
+    <section class="container2">
+      <h1 class="section-title">Stays</h1>
+
+      <div class="card__container slider" style="display: flex; overflow: hidden; position: relative;">
+        <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Vancouver Mountains, Canada</span>
+              <h2 class="card__title">The Great Path</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Poon Hill, Nepal</span>
+              <h2 class="card__title">Starry Night</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Bojcin Forest, Serbia</span>
+              <h2 class="card__title">Path Of Peace</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
         </div>
-        <div class="view-more-container">
-          <a href="#" class="view-more-btn">View More</a>
+        <button class="slider-btn prev">
+          <span class="btn-icon">&#8249;</span>
+        </button>
+        <button class="slider-btn next">
+          <span class="btn-icon">&#8250;</span>
+        </button>
+      </div>
+      <div class="view-more-container">
+        <a href="#" class="view-more-btn">View More</a>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+
+    <section class="container2">
+      <h1 class="section-title">Stays</h1>
+
+      <div class="card__container slider" style="display: flex; overflow: hidden; position: relative;">
+        <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Vancouver Mountains, Canada</span>
+              <h2 class="card__title">The Great Path</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Poon Hill, Nepal</span>
+              <h2 class="card__title">Starry Night</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Bojcin Forest, Serbia</span>
+              <h2 class="card__title">Path Of Peace</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
+    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>    
+          <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
+            <img src="{{url('Frontend/images/bed.jpg')}}" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">Sunset Beach, Maldives</span>
+              <h2 class="card__title">Ocean Bliss</h2>
+              <a href="#" class="card__button">Read More</a>
+            </div>
+          </article>
         </div>
-      </section>
+        <button class="slider-btn prev">
+          <span class="btn-icon">&#8249;</span>
+        </button>
+        <button class="slider-btn next">
+          <span class="btn-icon">&#8250;</span>
+        </button>
+      </div>
+      <div class="view-more-container">
+        <a href="#" class="view-more-btn">View More</a>
+      </div>
     </section>
 
 </html>
