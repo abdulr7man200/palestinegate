@@ -14,10 +14,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
 
-                        <li class="{{ Route::is('booking.index') ? 'active' : '' }}">
-                            <a href="{{ route('booking.index') }}">
-                                <i class="fas fa-calendar-alt"></i>Booking</a>
-                        </li>
+                    
 
                         <li class="{{ Route::is('users.index') ? 'active' : '' }}">
                             <a href="{{ route('users.index') }}">
@@ -53,7 +50,10 @@
                             <a href="{{ route('rooms.index') }}">
                                 <i class="fas fa-building"></i>Rooms</a>
                         </li>
-
+                        <li class="{{ Route::is('booking.index') ? 'active' : '' }}">
+                            <a href="{{ route('booking.index') }}">
+                                <i class="fas fa-calendar-alt"></i>Booking</a>
+                        </li>
 
                     </ul>
                 </nav>

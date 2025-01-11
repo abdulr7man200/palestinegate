@@ -26,7 +26,6 @@
         <link rel="stylesheet" href="{{ url('Frontend/fonts/ionicons/css/ionicons.min.css')}}">
         <link rel="stylesheet" href="{{ url('Frontend/fonts/fontawesome/css/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{ url('Frontend/css/style.css')}}">
-        <link rel="stylesheet" href="{{ url("Frontend/css/scrollcards.css")}}">
 
     </head>
     <body class="font-sans antialiased">
@@ -56,6 +55,5 @@
 
         <script src="{{ url('Frontend/js/main.js')}}"></script>
         
-        <script src="{{ url("Frontend/js/scrollcards.js")}}"></script>
     </body>
 </html>
