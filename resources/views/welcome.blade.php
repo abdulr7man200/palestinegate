@@ -212,7 +212,7 @@
           <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7">
               <h2 class="heading" data-aos="fade-up">Recommended</h2>
-              <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the stays we have</p>
+              <p data-aos="fade-up" data-aos-delay="100">We recommend you </p>
             </div>
           </div>
           <div class="row">

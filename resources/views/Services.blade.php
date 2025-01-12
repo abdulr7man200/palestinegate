@@ -80,6 +80,14 @@
           <a href="#" class="view-more-btn">View More</a>
         </div>
       </section>
+      <section class="container2">
+        <h1 class="section-title">Flights</h1>
+        <br>
+        <h2 class="">Coming soon</h2>
+
+      </section>
+
+    
 
 
 </html>

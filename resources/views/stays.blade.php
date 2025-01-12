@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="site-hero inner-page overlay" style="background-image: " data-stellar-background-ratio="0.5">
+    <section class="site-hero inner-page overlay" style="background-image:url('{{ url('Frontend/images/Gaza.jpg') }}') " data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
@@ -23,14 +23,9 @@
         <div class="container">
             <div class="rw check-availability" id="next">
                 <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-
-
                     <div id="stays-form" class="filter-content">
                         <form action="{{ route('showstays') }}" method="GET">
                             <div class="row">
-
-
-
                                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                                     <label for="type" class="font-weight-bold text-black">Property Type</label>
                                     <select id="type" name="type" class="form-control">
@@ -43,7 +38,6 @@
                                         </option>
                                     </select>
                                 </div>
-
                                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                                     <label for="city" class="font-weight-bold text-black">City</label>
                                     <select id="city" name="city" class="form-control">
@@ -83,7 +77,6 @@
                                         </option>
                                     </select>
                                 </div>
-
 
 
                                 <div class="col-md-6 mb-3 mb-md-0 col-lg-3">

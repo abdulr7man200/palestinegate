@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cars;
+
 use App\Models\Stays;
 class DashboardController extends Controller
 {
@@ -95,8 +96,38 @@ class DashboardController extends Controller
     }
 
 
-    public function cars(){
-        return view('cars');
+    public function cars(Request $request)
+    {
+        // Query to fetch cars with their associated pictures
+        $cars = Cars::with(['carPics']);
+    
+        // Apply filters if the parameters are present
+        if ($request->filled('type')) {
+            $cars->where('type', 'like', '%' . $request->type . '%');
+        }
+    
+        if ($request->has('location') && $request->location != '') {
+            $cars = $cars->where('location', $request->location);
+        }
+    
+        if ($request->has('price') && $request->price != '') {
+            // Filter by price range
+            if ($request->price == 'lowest') {
+                $cars = $cars->orderBy('price_per_day', 'asc');
+            } elseif ($request->price == 'highest') {
+                $cars = $cars->orderBy('price_per_day', 'desc');
+            }
+        }
+    
+        if ($request->filled('year')) {
+            $cars->where('year', $request->year);
+        }
+    
+    
+        // Paginate the results (16 items per page)
+        $cars = $cars->paginate(16);
+    
+        return view('cars', compact('cars'));
     }
 
 
