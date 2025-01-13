@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 
