@@ -37,91 +37,177 @@
             <!-- Forms container -->
             <div id="stays-form" class="filter-content">
               <!-- Stays Form -->
-              <form action="#">
+              <form action="{{ route('showstays') }}" method="GET">
                 <div class="row">
-                  <!-- Property Type Filter -->
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="property_type" class="font-weight-bold text-black">Property Type</label>
-                    <select id="property_type" class="form-control">
-                      <option>Apartment</option>
-                      <option>House</option>
-                      <option>Villa</option>
-                      <option>Condo</option>
-                    </select>
-                  </div>
+                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                        <label for="type" class="font-weight-bold text-black">Property Type</label>
+                        <select id="type" name="type" class="form-control">
+                            <option value="">Select Type</option>
+                            <option value="hotels" {{ request('type') == 'hotels' ? 'selected' : '' }}>Hotels
+                            </option>
+                            <option value="apartments" {{ request('type') == 'apartments' ? 'selected' : '' }}>
+                                Apartments</option>
+                            <option value="chales" {{ request('type') == 'chales' ? 'selected' : '' }}>Chales
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                        <label for="city" class="font-weight-bold text-black">City</label>
+                        <select id="city" name="city" class="form-control">
+                            <option value="">Select City</option>
+                            <option value="jerusalem" {{ request('city') == 'jerusalem' ? 'selected' : '' }}>
+                                Jerusalem</option>
+                            <option value="nablus" {{ request('city') == 'nablus' ? 'selected' : '' }}>Nablus
+                            </option>
+                            <option value="ramallah" {{ request('city') == 'ramallah' ? 'selected' : '' }}>
+                                Ramallah</option>
+                            <option value="bethlehem" {{ request('city') == 'bethlehem' ? 'selected' : '' }}>
+                                Bethlehem</option>
+                            <option value="hebron" {{ request('city') == 'hebron' ? 'selected' : '' }}>Hebron
+                            </option>
+                            <option value="gaza" {{ request('city') == 'gaza' ? 'selected' : '' }}>Gaza
+                            </option>
+                            <option value="tulkarem" {{ request('city') == 'tulkarem' ? 'selected' : '' }}>
+                                Tulkarem</option>
+                            <option value="jenin" {{ request('city') == 'jenin' ? 'selected' : '' }}>Jenin
+                            </option>
+                            <option value="tubas" {{ request('city') == 'tubas' ? 'selected' : '' }}>Tubas
+                            </option>
+                            <option value="salfit" {{ request('city') == 'salfit' ? 'selected' : '' }}>Salfit
+                            </option>
+                            <option value="qalqilya" {{ request('city') == 'qalqilya' ? 'selected' : '' }}>
+                                Qalqilya</option>
+                            <option value="jericho" {{ request('city') == 'jericho' ? 'selected' : '' }}>
+                                Jericho</option>
+                            <option value="ramallah" {{ request('city') == 'ramallah' ? 'selected' : '' }}>
+                                Ramallah</option>
+                            <option value="deir al-balah"
+                                {{ request('city') == 'deir al-balah' ? 'selected' : '' }}>Deir al-Balah
+                            </option>
+                            <option value="khan_younis"
+                                {{ request('city') == 'khan_younis' ? 'selected' : '' }}>Khan Younis</option>
+                            <option value="rafah" {{ request('city') == 'rafah' ? 'selected' : '' }}>Rafah
+                            </option>
+                        </select>
+                    </div>
 
-                  <!-- City Filter -->
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="stays_city" class="font-weight-bold text-black">City</label>
-                    <input type="text" id="stays_city" class="form-control" placeholder="Enter city">
-                  </div>
 
-                  <!-- Number of Bedrooms Filter -->
-                  <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                    <label for="bedrooms" class="font-weight-bold text-black">Number of Bedrooms</label>
-                    <select id="bedrooms" class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4+</option>
-                    </select>
-                  </div>
+                    <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                        <label for="stays_price_sort" class="font-weight-bold text-black">Price</label>
+                        <select id="stays_price_sort" name="price" class="form-control">
+                            <option value="">Select Price</option>
+                            <option value="lowest" {{ request('price') == 'lowest' ? 'selected' : '' }}>Lowest</option>
+                            <option value="highest" {{ request('price') == 'highest' ? 'selected' : '' }}>Highest</option>
+                            <option value="all" {{ request('price') == 'all' ? 'selected' : '' }}>All</option>
+                        </select>
+                    </div>
 
-                  <!-- Price Sort Filter -->
-                  <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                    <label for="stays_price_sort" class="font-weight-bold text-black">Price</label>
-                    <select id="stays_price_sort" class="form-control">
-                      <option>Lowest</option>
-                      <option>Highest</option>
-                      <option>All</option>
-                    </select>
-                  </div>
+
+                    <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                        <label for="numberofbedrooms" class="font-weight-bold text-black">Number Of Bedrooms</label>
+                        <select id="numberofbedrooms" name="numberofbedrooms" class="form-control">
+                            <option value="">Select Number Of Bedrooms</option>
+                            <option value="1" {{ request('numberofbedrooms') == '1' ? 'selected' : '' }}>1</option>
+                            <option value="2" {{ request('numberofbedrooms') == '2' ? 'selected' : '' }}>2</option>
+                            <option value="3" {{ request('numberofbedrooms') == '3' ? 'selected' : '' }}>3</option>
+                            <option value="4" {{ request('numberofbedrooms') >= '4' ? 'selected' : '' }}>+4</option>
+                        </select>
+                    </div>
+
 
                 </div>
-              </form>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-6 col-lg-3 align-self-end">
+                        <button type="submit" class="btn btn-primary btn-block text-white">Check
+                            Availability</button>
+                    </div>
+                </div>
+            </form>
             </div>
 
             <div id="cars-form" class="filter-content d-none">
               <!-- Cars Form -->
-              <form action="#">
+              <form action="{{ route('showcars') }}" method="GET">
                 <div class="row">
-                  <!-- Vehicle Type Filter -->
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="vehicle_type" class="font-weight-bold text-black">Vehicle Type</label>
-                    <select id="vehicle_type" class="form-control">
-                      <option>Compact</option>
-                      <option>SUV</option>
-                      <option>Convertible</option>
-                      <option>Minivan</option>
-                      <option>Luxury</option>
-                    </select>
+                    <!-- Car Type Filter -->
+                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                      <label for="type" class="font-weight-bold text-black">Car Type</label>
+                      <input
+                          type="text"
+                          id="type"
+                          name="type"
+                          class="form-control"
+                          placeholder="Search car type (e.g., SUV)"
+                          value="{{ request('type') }}">
                   </div>
+                    <!-- Location Filter -->
+                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                        <label for="location" class="font-weight-bold text-black">Location</label>
+                        <select id="location" name="location" class="form-control">
+                          <option value="">Select City</option>
+                          <option value="jerusalem" {{ request('location') == 'jerusalem' ? 'selected' : '' }}>
+                              Jerusalem</option>
+                          <option value="nablus" {{ request('location') == 'nablus' ? 'selected' : '' }}>Nablus
+                          </option>
+                          <option value="ramallah" {{ request('location') == 'ramallah' ? 'selected' : '' }}>
+                              Ramallah</option>
+                          <option value="bethlehem" {{ request('location') == 'bethlehem' ? 'selected' : '' }}>
+                              Bethlehem</option>
+                          <option value="hebron" {{ request('location') == 'hebron' ? 'selected' : '' }}>Hebron
+                          </option>
+                          <option value="gaza" {{ request('location') == 'gaza' ? 'selected' : '' }}>Gaza
+                          </option>
+                          <option value="tulkarem" {{ request('location') == 'tulkarem' ? 'selected' : '' }}>
+                              Tulkarem</option>
+                          <option value="jenin" {{ request('location') == 'jenin' ? 'selected' : '' }}>Jenin
+                          </option>
+                          <option value="tubas" {{ request('location') == 'tubas' ? 'selected' : '' }}>Tubas
+                          </option>
+                          <option value="salfit" {{ request('location') == 'salfit' ? 'selected' : '' }}>Salfit
+                          </option>
+                          <option value="qalqilya" {{ request('location') == 'qalqilya' ? 'selected' : '' }}>
+                              Qalqilya</option>
+                          <option value="jericho" {{ request('location') == 'jericho' ? 'selected' : '' }}>
+                              Jericho</option>
+                          <option value="ramallah" {{ request('location') == 'ramallah' ? 'selected' : '' }}>
+                              Ramallah</option>
+                          <option value="deir al-balah"
+                              {{ request('location') == 'deir al-balah' ? 'selected' : '' }}>Deir al-Balah
+                          </option>
+                          <option value="khan_younis"
+                              {{ request('location') == 'khan_younis' ? 'selected' : '' }}>Khan Younis</option>
+                          <option value="rafah" {{ request('location') == 'rafah' ? 'selected' : '' }}>Rafah
+                          </option>
+                        </select>
+                    </div>
 
-                  <!-- City Filter -->
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="cars_city" class="font-weight-bold text-black">City</label>
-                    <input type="text" id="cars_city" class="form-control" placeholder="Enter city">
-                  </div>
-
-                  <!-- Price Sort Filter -->
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="cars_price_sort" class="font-weight-bold text-black">Price</label>
-                    <select id="cars_price_sort" class="form-control">
-                      <option>Ascending</option>
-                      <option>Descending</option>
-                    </select>
-                  </div>
-
+                    <!-- Price Filter -->
+                    <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                        <label for="price_sort" class="font-weight-bold text-black">Price</label>
+                        <select id="price_sort" name="price" class="form-control">
+                            <option value="">Select Price</option>
+                            <option value="lowest" {{ request('price') == 'lowest' ? 'selected' : '' }}>Lowest</option>
+                            <option value="highest" {{ request('price') == 'highest' ? 'selected' : '' }}>Highest</option>
+                        </select>
+                    </div>
                 </div>
-              </form>
+
+
+
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-6 col-lg-3 align-self-end">
+                        <button type="submit" class="btn btn-primary btn-block text-white">Check Availability</button>
+                    </div>
+                </div>
+            </form>
             </div>
 
             <!-- Centered Check Availability Button -->
-            <div class="row justify-content-center mt-4">
+            {{-- <div class="row justify-content-center mt-4">
               <div class="col-md-6 col-lg-3 align-self-end">
                 <button class="btn btn-primary btn-block text-white">Check Availability</button>
               </div>
-            </div>
+            </div> --}}
 
           </div>
         </div>

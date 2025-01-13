@@ -25,6 +25,14 @@ class User extends Authenticatable implements LaratrustUser
 
     public $guarded = ['id'];
 
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -16,6 +16,7 @@
                         <label for="images" class="form-label">Status</label>
                         <select class="form-control" id="edit-status" name="status" required>
                             <option value="pending">Pending</option>
+                            <option value="paid">Paid</option>
                             <option value="confirmed">Confirmed</option>
                             <option value="canceled">Canceled</option>
                         </select>

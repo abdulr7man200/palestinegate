@@ -30,12 +30,12 @@
                               <!-- Car Type Filter -->
                               <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                                 <label for="type" class="font-weight-bold text-black">Car Type</label>
-                                <input 
-                                    type="text" 
-                                    id="type" 
-                                    name="type" 
-                                    class="form-control" 
-                                    placeholder="Search car type (e.g., SUV)" 
+                                <input
+                                    type="text"
+                                    id="type"
+                                    name="type"
+                                    class="form-control"
+                                    placeholder="Search car type (e.g., SUV)"
                                     value="{{ request('type') }}">
                             </div>
                               <!-- Location Filter -->
@@ -78,7 +78,7 @@
                                     </option>
                                   </select>
                               </div>
-  
+
                               <!-- Price Filter -->
                               <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
                                   <label for="price_sort" class="font-weight-bold text-black">Price</label>
@@ -87,19 +87,19 @@
                                       <option value="lowest" {{ request('price') == 'lowest' ? 'selected' : '' }}>Lowest</option>
                                       <option value="highest" {{ request('price') == 'highest' ? 'selected' : '' }}>Highest</option>
                                   </select>
-                              </div>                            
+                              </div>
                           </div>
 
-                          
+
                             {{-- <!-- Year Range Filter -->
                             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                               <label for="year" class="font-weight-bold text-black">Year</label>
-                              <input 
-                                  type="number" 
-                                  id="year" 
-                                  name="year" 
-                                  class="form-control" 
-                                  placeholder="Enter year (e.g., 2020)" 
+                              <input
+                                  type="number"
+                                  id="year"
+                                  name="year"
+                                  class="form-control"
+                                  placeholder="Enter year (e.g., 2020)"
                                   value="{{ request('year') }}">
                           </div>
    --}}
@@ -114,7 +114,7 @@
           </div>
       </div>
   </section>
-  
+
       <section class="container2">
         <div class="card__container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             @foreach ($cars as $car)
@@ -126,7 +126,7 @@
                         <span class="card__description">{{ $car->price_per_day }}$</span>
 
 
-                        <a href="" class="card__button">View More</a>
+                        <a href="{{ route('cardetails', $car->id) }}" class="card__button">View More</a>
                     </div>
                 </article>
             @endforeach
@@ -136,6 +136,6 @@
             {{ $cars->links() }} <!-- This will show the pagination links -->
         </div>
     </section>
-  
+
 
 @endsection

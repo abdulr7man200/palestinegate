@@ -14,9 +14,14 @@ class Booking extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function stays(){
+    public function store(){
+        return $this->belongsTo(User::class, 'store_id');
+    }
+    public function stay(){
         return $this->belongsTo(Stays::class, 'stay_id');
     }
+
+
 
 
 }

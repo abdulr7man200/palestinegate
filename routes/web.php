@@ -31,9 +31,13 @@ Route::middleware('auth')->group(function () {
 Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus');
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
 Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
-Route::get('/Services', [DashboardController::class, 'Services'])->name('Services');
+Route::get('/services', [DashboardController::class, 'Services'])->name('Services');
 Route::get('/showstays', [DashboardController::class, 'stays'])->name('showstays');
 Route::get('/showcars', [DashboardController::class, 'cars'])->name('showcars');
+Route::get('/car/{id}',  [DashboardController::class, 'cardetails'])->name('cardetails');
+Route::post('/booknow', [DashboardController::class, 'booknow'])->name('booknow');
+Route::get('/booking/{id}',  [DashboardController::class, 'bookingbyid'])->name('bookingbyid');
+Route::post('/payment',  [DashboardController::class, 'payment'])->name('payment');
 
 
 
