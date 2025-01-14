@@ -78,7 +78,17 @@
                             <td>{{ $booking->price }}</td>
                             <td>{{ $booking->start_date }}</td>
                             <td>{{ $booking->end_date }}</td>
-                            <td><span class="badge bg-success">{{ $booking->status }}</span></td>
+                            <td>
+                                @if ($booking->status == 'pending')
+                                    <span class="badge bg-warning">{{ ucfirst($booking->status) }}</span>
+                                @elseif ($booking->status == 'paid')
+                                    <span class="badge bg-success">{{ ucfirst($booking->status) }}</span>
+                                @elseif ($booking->status == 'confirmed')
+                                    <span class="badge bg-primary">{{ ucfirst($booking->status) }}</span>
+                                @elseif ($booking->status == 'canceled')
+                                    <span class="badge bg-danger">{{ ucfirst($booking->status) }}</span>
+                                @endif
+                            </td>
 
                             <!-- Conditionally add data based on the booking type -->
                             @if ($booking->stay_id)
@@ -110,9 +120,29 @@
                             @endif
 
                             <td>
+                            @if ($booking->status == 'confirmed')
+                            @if ($booking->feedback)
+                            <span class="badge bg-success">Feedback Received</span>
+                            @else
                                 <button class="btn btn-sm btn-primary add-feedback" data-toggle="modal" data-target="#feedbackModal" data-id="{{ $booking->id }}">
                                     Add Feedback
                                 </button>
+                            @endif
+
+                            @else
+
+                            @if ($booking->status == 'pending')
+                            <a class="btn btn-sm btn-primary" href="{{ route('bookingbyid', $booking->id) }}" >Continue Bookings</a>
+
+                            @else
+                            <span class="badge bg-primary">Wait Confirmation</span>
+
+                            @endif
+
+                            @endif
+
+
+
                             </td>
                         </tr>
                         @empty
@@ -137,7 +167,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="feedbackForm">
+                <form id="feedbackForm" method="POST" action="">
                     @csrf
                     <div class="mb-3">
                         <label for="rating" class="form-label">Rating</label>
@@ -164,6 +194,7 @@
     </div>
 </div>
 
+@push('scripts')
 <script>
     $(document).ready(function () {
         $.ajaxSetup({
@@ -173,21 +204,30 @@
     });
 
 
-    var bookingId = $(this).data('id');
+    $(document).on("click", ".add-feedback", function () {
+    const bookingId = $(this).data("id");
+    $('#feedbackForm').attr('action', '/addfeedback/' + bookingId);
+
+    console.log(bookingId);
+
+});
 
     // AJAX form submission for feedback
     $('#feedbackForm').submit(function (e) {
         e.preventDefault(); // Prevent the default form submission
 
-        var formData = $(this).serialize(); // Serialize form data
+        const form = $(this);
+        const url = form.attr('action'); // Get the dynamically updated action URL
+
 
         $.ajax({
-            url: "/addfeedback/" + bookingId, // Direct URL with bookingId
+            url: url, // Direct URL with bookingId
             method: "POST",
-            data: formData,
+            data: form.serialize(),
             success: function (response) {
                 $('#feedback-message').html('<div class="alert alert-success">' + response.success + '</div>');
                 $('#feedbackModal').modal('hide');
+                location.reload();
             },
             error: function (xhr) {
                 var errorMessages = xhr.responseJSON.errors;
@@ -259,6 +299,7 @@
 
     </script>
 
+@endpush
 
 
 @endsection

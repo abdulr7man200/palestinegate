@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Exception;
+use Carbon\Carbon;
+use App\Models\Cars;
+use App\Models\Rooms;
+use App\Models\Stays;
+use Telegram\Bot\Api;
+use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
-use App\Models\Cars;
-use App\Models\Booking;
-use App\Models\Stays;
-use App\Models\Payment;
-use App\Models\Rooms;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
-use Telegram\Bot\Api;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DashboardController extends Controller
 {
@@ -476,20 +478,38 @@ class DashboardController extends Controller
     public function addfeedback(Request $request, $id)
     {
         $request->validate([
-            'rating' => 'required|between:1,5',
-            'comment' => 'required|string|max:100000',
+            'rating' => 'required|integer|between:1,5',
+            'comment' => 'required|string|max:1000', // Reduced max length for practical reasons
         ]);
 
-        // Create new feedback entry
-        $feedback = new Feedback();
-        $feedback->user_id = auth()->user()->id;
-        $feedback->booking_id = $id;
-        $feedback->rating = $request->rating;
-        $feedback->comment = $request->comment;
-        $feedback->save();
+        try {
+            // Ensure the booking exists
+            $booking = Booking::findOrFail($id);
 
-        return response()->json(['success' => 'Your feedback has been submitted successfully.']);
+                  // Check if feedback already exists
+            $existingFeedback = Feedback::where('booking_id', $booking->id)
+            ->first();
+
+            if ($existingFeedback) {
+                return response()->json(['error' => 'You have already submitted feedback for this booking.'], 400);
+            }
+
+            // Create new feedback entry
+            $feedback = new Feedback();
+            $feedback->user_id = auth()->user()->id;
+            $feedback->booking_id = $booking->id;
+            $feedback->rating = $request->rating;
+            $feedback->comment = $request->comment;
+            $feedback->save();
+
+            return response()->json(['success' => 'Your feedback has been submitted successfully.']);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['error' => 'Booking not found.'], 404);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred. Please try again later.'], 500);
+        }
     }
+
 
 
 

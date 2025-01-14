@@ -63,6 +63,9 @@
 
         <script src="{{ url('Frontend/js/main.js')}}"></script>
         <script src="{{ url('Frontend/js/cards.js')}}"></script>
+        @stack('scripts')
+
+
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

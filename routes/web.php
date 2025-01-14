@@ -15,11 +15,6 @@ use App\Http\Controllers\ContactController as userContactController;
 
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 
 Route::middleware('auth')->group(function () {
@@ -33,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/booknowroom',   [DashboardController::class, 'booknowroom'])->name('booknowroom');
     Route::post('/payment',  [DashboardController::class, 'payment'])->name('payment');
     Route::get('reservations',  [DashboardController::class, 'reservations'])->name('reservations');
-    Route::post('addfeedback/{id}',  [DashboardController::class, 'addfeedback'])->name('addfeedback');
+    Route::post('addfeedback/{id?}',  [DashboardController::class, 'addfeedback'])->name('addfeedback');
 
 
 });

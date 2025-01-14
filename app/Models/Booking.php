@@ -24,6 +24,12 @@ class Booking extends Model
         return $this->belongsTo(Rooms::class, 'room_id');
     }
 
+    // Rooms model
+    public function feedback()
+    {
+        return $this->hasOne(Feedback::class, 'booking_id');
+    }
+
 
 
 
