@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('Frontend/css/details.css') }}">
 
-<link rel="stylesheet" href="{{ asset('Frontend/css/details.css') }}">
-
-<section class="site-hero inner-page overlay" style="background-image: url('{{ url('Frontend/images/haram.jpg') }}');"
+    <section class="site-hero inner-page overlay" style="background-image: url('{{ url('Frontend/images/haram.jpg') }}');"
         data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
@@ -28,35 +27,36 @@
     <div class="pd-wrap">
         <div class="container">
             <div class="heading-section">
-                <h2>Car Details</h2>
+                <h2>Stay Details</h2>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="slider-container">
-                        <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                          @forelse ($car->carPics as $image)
-                            <div class="slider-item">
-                              <a >
-                                <img src="{{ asset('storage/' . $image->path) }}" alt="Stay Image" class="img-fluid" style="height: 500px;">
-                              </a>
-                            </div>
-                          @empty
-                            <div class="alert alert-warning" role="alert">
-                              No images found.
-                            </div>
-                          @endforelse
-                        </div>
+                      <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                        @forelse ($stay->staysPics as $image)
+                          <div class="slider-item">
+                            <a >
+                              <img src="{{ asset('storage/' . $image->path) }}" alt="Stay Image" class="img-fluid" style="height: 500px;">
+                            </a>
+                          </div>
+                        @empty
+                          <div class="alert alert-warning" role="alert">
+                            No images found.
+                          </div>
+                        @endforelse
                       </div>
-                </div>
-
-
+                    </div>
+                  </div>
+                  
 
 
                 <div class="col-md-6">
                     <div class="product-dtl">
                         <div class="product-info">
-                            <div class="product-name">{{ $car->type }}({{ $car->model }})</div>
-                            <span>{{ $car->year }}</span>
+                            <div class="product-name">{{ $stay->name }}</div>
+                            <p>
+                                {{ $stay->type }}
+                            </p>
                             <div class="reviews-counter">
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rate" value="5" checked />
@@ -72,18 +72,31 @@
                                 </div>
                                 <span>3 Reviews</span>
                             </div>
-                            <div class="product-price-discount"><span>${{ $car->price_per_day }}</span>
+                            <div class="product-price-discount"><span>${{ $stay->price }}</span>
                                 {{-- <span class="line-through">$29.00</span> --}}
                             </div>
                         </div>
+
                         <p>
-                            {{ $car->description }}
+                            City: {{ $stay->city }}
+                        </p>
+                        <p>
+                            Street Address: {{ $stay->streetaddress }}
+                        </p>
+                        <p>
+                            Numberof Bedrooms: {{ $stay->numberofbedrooms }}
+                        </p>
+                        <p>
+                            Maxnumof Guests: {{ $stay->maxnumofguests }}
                         </p>
 
-                        <form action="{{ route('booknow') }}" method="POST">
+
+
+                        <form action="{{ route('booknowstay') }}" method="POST">
                             @csrf
 
-                            <input type="hidden" id="car_id" name="car_id" class="form-control" value="{{ $car->id }}" required>
+                            <input type="hidden" id="stay_id" name="stay_id" class="form-control"
+                                value="{{ $stay->id }}" required>
 
                             <div class="form-group">
                                 <label for="start_date">Start Date</label>
@@ -97,8 +110,11 @@
                                 <input type="date" id="end_date" name="end_date" class="form-control" required>
                             </div>
                             @error('end_date')
-                            <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+
+
 
                             <div class="product-count">
                                 <button type="submit" class="round-black-btn">Book Now</button>
@@ -124,7 +140,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="description" role="tabpanel"
                         aria-labelledby="description-tab">
-                        {{ $car->description }}
+                        {{ $stay->description }}
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                         <div class="review-heading">REVIEWS</div>

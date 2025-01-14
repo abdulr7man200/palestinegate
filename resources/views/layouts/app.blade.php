@@ -42,7 +42,10 @@
            @include('layouts.footer')
         </div>
 
-        <script src="{{ url('Frontend/js/jquery-3.3.1.min.js') }}"></script>
+        {{-- <script src="{{ url('Frontend/js/jquery-3.3.1.min.js') }}"></script> --}}
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
         <script src="{{ url('Frontend/js/jquery-migrate-3.0.1.min.js') }}"></script>
         <script src="{{ url('Frontend/js/popper.min.js') }}"></script>
         <script src="{{ url('Frontend/js/bootstrap.min.js')}}"></script>

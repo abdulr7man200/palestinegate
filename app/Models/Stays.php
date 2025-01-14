@@ -14,5 +14,9 @@ class Stays extends Model
     public function staysPics(){
         return $this->hasMany(StaysPics::class, 'stay_id');
     }
+    public function Rooms(){
+        return $this->hasMany(Rooms::class, 'stay_id');
+    }
+
 }
 

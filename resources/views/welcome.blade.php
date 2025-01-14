@@ -235,7 +235,6 @@
       </div>
     </section>
 
-
     <section class="section slider-section bg-light">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
@@ -244,54 +243,56 @@
             <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the cars we have</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
+        <div class="row justify-content-center">
+          <div class="col-md-12 slider-container">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                @forelse ($cars as $car)
-                    <div class="slider-item">
-                    <a href=""  ><img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
-                  </div>
-                @empty
+              @forelse ($cars as $car)
+                <div class="slider-item">
+                  <a href="">
+                    <img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;">
+                  </a>
+                </div>
+              @empty
                 <div class="alert alert-warning" role="alert">
-                    No items found.
-                  </div>
-                @endforelse
-
+                  No items found.
+                </div>
+              @endforelse
             </div>
           </div>
-
         </div>
       </div>
     </section>
+    
 
 
-    <section class="section slider-section bg-light">
+
+
+      <section class="section slider-section bg-light">
         <div class="container">
           <div class="row justify-content-center text-center mb-5">
             <div class="col-md-7">
               <h2 class="heading" data-aos="fade-up">Stays</h2>
-              <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the stays we have</p>
+              <p data-aos="fade-up" data-aos-delay="100">Take a look at some of the Stays we have</p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
+          <div class="row justify-content-center">
+            <div class="col-md-12 slider-container">
               <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                  @forelse ($stays as $stay)
-                      <div class="slider-item">
-                      <a href=""  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
-                    </div>
-                  @empty
+                @forelse ($stays as $stay)
+                <div class="slider-item">
+                <a href=""  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+              </div>
+            @empty
                   <div class="alert alert-warning" role="alert">
-                      No items found.
-                    </div>
-                  @endforelse
-
+                    No items found.
+                  </div>
+                @endforelse
               </div>
             </div>
-
           </div>
         </div>
       </section>
+      
 
       <section class="section slider-section bg-light">
         <div class="container">
@@ -303,21 +304,24 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                @forelse ($recommendedItems as $recommendedItem)
-                <div class="slider-item">
-                    <a href="#">
-                        <img
-                            src="{{ $recommendedItem instanceof \App\Models\Cars ?
-                                    asset('storage/' . $recommendedItem->carPics->first()->path) :
-                                    asset('storage/' . $recommendedItem->staysPics->first()->path) }}"
-                            alt="Image placeholder"
-                            class="img-fluid"
-                            style="height: 500px;"
-                        >
-                    </a>
+              <div class="col-md-12 slider-container">
+
+                  <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                    @forelse ($recommendedItems as $recommendedItem)
+                    <div class="slider-item">
+                        <a href="#">
+                            <img
+                                src="{{ $recommendedItem instanceof \App\Models\Cars ?
+                                        asset('storage/' . $recommendedItem->carPics->first()->path) :
+                                        asset('storage/' . $recommendedItem->staysPics->first()->path) }}"
+                                alt="Image placeholder"
+                                class="img-fluid"
+                                style="height: 500px;"
+                            >
+                        </a>
+                    </div>
+                @empty
                 </div>
-            @empty
                 <div class="alert alert-warning" role="alert">
                     No items found.
                 </div>
@@ -330,6 +334,10 @@
           </div>
         </div>
       </section>
+
+      
+
+
 
   </body>
 </html>

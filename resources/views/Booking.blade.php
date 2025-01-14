@@ -72,14 +72,14 @@
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <label for="cardholder_name">Cardholder Name</label>
-                                    <input type="text" name="cardholder_name" class="form-control" value="{{ old('cardholder_name') }}" required>
+                                    <input type="text" name="cardholder_name" class="form-control" value="{{ old('cardholder_name') }}" >
                                     @error('cardholder_name')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for="card_number">Credit Card Number</label>
-                                    <input type="text" name="card_number" class="form-control" value="{{ old('card_number') }}" maxlength="16" required>
+                                    <input type="text" name="card_number" class="form-control" value="{{ old('card_number') }}" maxlength="16" >
                                     @error('card_number')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -88,14 +88,14 @@
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <label for="expiry_date">Expiration Date</label>
-                                    <input type="text" name="expiry_date" class="form-control" value="{{ old('expiry_date') }}" placeholder="MM/YY" required>
+                                    <input type="text" name="expiry_date" class="form-control" value="{{ old('expiry_date') }}" placeholder="MM/YY" >
                                     @error('expiry_date')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for="cvv">CVV</label>
-                                    <input type="text" name="cvv" class="form-control" value="{{ old('cvv') }}" maxlength="3" required>
+                                    <input type="text" name="cvv" class="form-control" value="{{ old('cvv') }}" maxlength="3" >
                                     @error('cvv')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -142,10 +142,17 @@
                     <div class="row">
                         <div class="col-md-10 ml-auto contact-info">
                         @if($stay)
+                            @if ($stay->Rooms->count() > 0)
+                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $room->room_pics->first()->path) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
+                            <p><span class="d-block">Room Number:</span> <span class="text-black">{{ $room->room_number }}</span></p>
+                            @else
                             <p><span class="d-block"></span> <img src="{{ asset('storage/' . $stay->staysPics->first()->path) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
+
+                            @endif
                             <p><span class="d-block">Stay Details:</span> <span class="text-black">{{ $stay->name }}</span></p>
-                            <p><span class="d-block">Location:</span> <span class="text-black">{{ $stay->location }}</span></p>
-                            <p><span class="d-block">Price:</span> <span class="text-black">${{ $stay->price }}</span></p>
+                            <p><span class="d-block">City:</span> <span class="text-black">{{ $stay->city }}</span></p>
+                            <p><span class="d-block">Street Address:</span> <span class="text-black">{{ $stay->streetaddress }}</span></p>
+                            <p><span class="d-block">Price:</span> <span class="text-black">${{ $booking->price }}</span></p>
                         @elseif($car)
                             <p><span class="d-block"></span> <img src="{{ asset('storage/' . $car->carPics->first()->path) }}" alt="Car Image" class="img-fluid" style="max-width: 100%;"></p>
                             <p><span class="d-block">Car Details:</span> <span class="text-black">{{ $car->type }}</span></p>

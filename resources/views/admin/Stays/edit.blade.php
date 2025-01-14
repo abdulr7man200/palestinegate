@@ -66,10 +66,6 @@
                         <input type="text" class="form-control" id="edit-streetaddress" name="streetaddress" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="edit-amenities" class="form-label">Amenities</label>
-                        <textarea class="form-control" id="edit-amenities" name="amenities" rows="2" required></textarea>
-                    </div>
 
                     <div class="mb-3">
                         <label for="edit-price" class="form-label">Price</label>

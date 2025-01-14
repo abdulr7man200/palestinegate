@@ -521,6 +521,10 @@ textarea.form-control {
     font-family: "Playfair Display", times, serif;
     font-weight: 700;
 }
+.slider-container {
+    max-width: 60%; /* Adjust the width as desired */
+    margin: 0 auto; /* Center the slider */
+}
 
 @media (max-width: 991.98px) {
     .heading-serif,

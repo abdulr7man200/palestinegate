@@ -26,18 +26,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/booking/{id}',  [DashboardController::class, 'bookingbyid'])->name('bookingbyid');
+    Route::post('/booknow',  [DashboardController::class, 'booknow'])->name('booknow');
+    Route::post('/booknowstay',  [DashboardController::class, 'booknowstay'])->name('booknowstay');
+    Route::post('/booknowroom',   [DashboardController::class, 'booknowroom'])->name('booknowroom');
+    Route::post('/payment',  [DashboardController::class, 'payment'])->name('payment');
+    Route::get('reservations',  [DashboardController::class, 'reservations'])->name('reservations');
+    Route::post('addfeedback/{id}',  [DashboardController::class, 'addfeedback'])->name('addfeedback');
+
+
 });
 
-Route::get('/contactus', [DashboardController::class, 'contactus'])->name('contactus');
+Route::get('/contactus', action: [DashboardController::class, 'contactus'])->name('contactus');
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
 Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
 Route::get('/services', [DashboardController::class, 'Services'])->name('Services');
 Route::get('/showstays', [DashboardController::class, 'stays'])->name('showstays');
 Route::get('/showcars', [DashboardController::class, 'cars'])->name('showcars');
+Route::get('/showrooms/{id}', [DashboardController::class, 'rooms'])->name('showrooms');
 Route::get('/car/{id}',  [DashboardController::class, 'cardetails'])->name('cardetails');
-Route::post('/booknow', [DashboardController::class, 'booknow'])->name('booknow');
-Route::get('/booking/{id}',  [DashboardController::class, 'bookingbyid'])->name('bookingbyid');
-Route::post('/payment',  [DashboardController::class, 'payment'])->name('payment');
+Route::get('/stay/{id}',  [DashboardController::class, 'staydetails'])->name('staydetails');
+Route::get('/room/{id}',  [DashboardController::class, 'roomdetails'])->name('roomdetails');
 
 
 
