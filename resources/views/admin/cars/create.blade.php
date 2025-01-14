@@ -39,10 +39,29 @@
                         <input type="text" class="form-control" id="description" name="description" required>
                     </div>
 
+
                     <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" required>
-                    </div>
+                        <label for="location" class="font-weight-bold text-black">Location</label>
+                        <select id="location" name="location" class="form-control">
+                          <option value="">Select Location</option>
+                          <option value="jerusalem">Jerusalem</option>
+                          <option value="nablus">Nablus</option>
+                          <option value="ramallah">Ramallah</option>
+                          <option value="bethlehem">Bethlehem</option>
+                          <option value="hebron">Hebron</option>
+                          <option value="gaza">Gaza</option>
+                          <option value="tulkarem">Tulkarem</option>
+                          <option value="jenin">Jenin</option>
+                          <option value="tubas">Tubas</option>
+                          <option value="salfit">Salfit</option>
+                          <option value="qalqilya">Qalqilya</option>
+                          <option value="jericho">Jericho</option>
+                          <option value="ramallah">Ramallah</option>
+                          <option value="deir al-balah">Deir al-Balah</option>
+                          <option value="khan_younis">Khan Younis</option>
+                          <option value="rafah">Rafah</option>
+                        </select>
+                      </div>
 
 
 

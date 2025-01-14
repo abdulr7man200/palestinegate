@@ -27,6 +27,10 @@
         <link rel="stylesheet" href="{{ url('Frontend/fonts/fontawesome/css/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{ url('Frontend/css/style.css')}}">
         <link rel="stylesheet" href="{{ url('Frontend/css/cards.css')}}">
+        <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     </head>
     <body class="font-sans antialiased">
@@ -56,6 +60,12 @@
 
         <script src="{{ url('Frontend/js/main.js')}}"></script>
         <script src="{{ url('Frontend/js/cards.js')}}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+
 
     </body>
 </html>
