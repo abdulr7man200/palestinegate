@@ -125,19 +125,24 @@
         <div class="card__container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             @foreach ($stays as $stay)
                 <article class="card__article">
-                    <img src="{{ asset('storage/' . $stay->staysPics->first()->path) }}" alt="image" class="card__img">
+                    <img src="{{ asset('storage/' . $stay->staysPics->first()->path) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
                     <div class="card__data">
                         <span class="card__description">{{ $stay->type }}</span>
                         <span class="card__description">{{ $stay->city }}</span>
                         <h2 class="card__title">{{ $stay->name }}({{ $stay->price }}$)</h2>
-                        <a href="" class="card__button">View More</a>
+                        @if ($stay->Rooms->count() > 0)
+                        <a href="{{ route('showrooms', $stay->id) }}" class="card__button">View More</a>
+                        @else
+                        <a href="{{ route('staydetails', $stay->id) }}" class="card__button">View More</a>
+                        @endif
                     </div>
                 </article>
             @endforeach
         </div>
 
         <div class="view-more-container">
-            {{ $stays->links() }} <!-- This will show the pagination links -->
+            {{ $stays->links('pagination::bootstrap-4') }} <!-- This will apply Bootstrap 4 styles to the pagination -->
         </div>
+
     </section>
 @endsection

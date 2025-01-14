@@ -64,10 +64,7 @@
                         <input type="text" class="form-control" id="streetaddress" name="streetaddress" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="amenities" class="form-label">Amenities</label>
-                        <textarea class="form-control" id="amenities" name="amenities" rows="2" required></textarea>
-                    </div>
+
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>

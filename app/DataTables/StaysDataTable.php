@@ -104,7 +104,6 @@ class StaysDataTable extends DataTable
             Column::make('description'),
             Column::make('city'),
             Column::make('streetaddress'),
-            Column::make('amenities'),
             Column::make('price'),
             Column::make('numberofbedrooms'),
             Column::make('maxnumofguests'),

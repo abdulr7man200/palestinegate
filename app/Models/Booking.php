@@ -20,6 +20,9 @@ class Booking extends Model
     public function stay(){
         return $this->belongsTo(Stays::class, 'stay_id');
     }
+    public function room(){
+        return $this->belongsTo(Rooms::class, 'room_id');
+    }
 
 
 

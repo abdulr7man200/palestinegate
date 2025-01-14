@@ -20,12 +20,16 @@ return new class extends Migration
             $table->string('description');
             $table->string("city");
             $table->string('streetaddress');
-            $table->string('amenities');
+            // $table->string('amenities');
             $table->float('price');
             $table->integer('numberofbedrooms');
             $table->integer('maxnumofguests');
             $table->unsignedBigInteger('user_id');
             $table->boolean('is_recommended')->default(false);
+            $table->boolean('availability')->default(true);
+            $table->boolean('has_ac')->default(false);
+            $table->boolean('has_wifi')->default(false);
+            $table->boolean('has_tv')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
