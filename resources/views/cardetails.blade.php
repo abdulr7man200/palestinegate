@@ -32,28 +32,21 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div id="carImagesCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @foreach ($car->carPics as $index => $image)
-                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('storage/' . $image->path) }}" class="d-block w-100" alt="Car Image">
-                                </div>
-                            @endforeach
+                    <div class="slider-container">
+                        <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                          @forelse ($car->carPics as $image)
+                            <div class="slider-item">
+                              <a >
+                                <img src="{{ asset('storage/' . $image->path) }}" alt="Stay Image" class="img-fluid" style="height: 500px;">
+                              </a>
+                            </div>
+                          @empty
+                            <div class="alert alert-warning" role="alert">
+                              No images found.
+                            </div>
+                          @endforelse
                         </div>
-
-                        <!-- Left and Right Arrows (No Text) -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carImagesCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carImagesCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
-
-                        <!-- Image Counter Row with Black Text (No Background) -->
-                        <div class="d-flex justify-content-center mt-2 text-black">
-                            <span id="imageIndex" class="fw-bold">1</span> of <span class="fw-bold">{{ $car->carPics->count() }}</span>
-                        </div>
-                    </div>
+                      </div>
                 </div>
 
 

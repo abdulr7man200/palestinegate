@@ -60,3 +60,4 @@ class BookingController extends Controller
         return response()->json(['success' => 'Successfully Deleted']);
     }
 }
+ 

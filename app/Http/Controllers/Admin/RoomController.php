@@ -32,7 +32,7 @@ class RoomController extends Controller
         request()->validate([
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['required', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:4096'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:8192'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long
@@ -88,7 +88,7 @@ class RoomController extends Controller
         request()->validate([
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['nullable', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:4096'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:8192'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long

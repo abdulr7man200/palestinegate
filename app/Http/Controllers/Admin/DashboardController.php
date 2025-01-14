@@ -479,7 +479,11 @@ class DashboardController extends Controller
     {
         $request->validate([
             'rating' => 'required|integer|between:1,5',
+<<<<<<< HEAD
             'comment' => 'required|string|max:1000', // Reduced max length for practical reasons
+=======
+            'comment' => 'required|string|max:100000',
+>>>>>>> 909d37dee0bf9adb437aa44d7b8cf6ed38e0ad42
         ]);
 
         try {

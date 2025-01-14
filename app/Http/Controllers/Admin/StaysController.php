@@ -28,7 +28,7 @@ class StaysController extends Controller
             'numberofbedrooms' => ['required', 'integer'],
             'maxnumofguests' => ['required', 'integer'],
             'images' => ['required', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:8192'],
         ]);
 
         $user = auth()->user();
@@ -84,7 +84,7 @@ class StaysController extends Controller
             'numberofbedrooms' => ['required', 'integer'],
             'maxnumofguests' => ['required', 'integer'],
             'images' => ['nullable', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:4096'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:8192'],
         ]);
 
         $user = auth()->user();
