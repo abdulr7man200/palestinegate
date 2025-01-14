@@ -248,7 +248,7 @@
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               @forelse ($cars as $car)
                 <div class="slider-item">
-                  <a href="">
+                  <a href="{{ route('cardetails', $car->id) }}">
                     <img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;">
                   </a>
                 </div>
@@ -262,7 +262,7 @@
         </div>
       </div>
     </section>
-    
+
 
 
 
@@ -280,7 +280,7 @@
               <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                 @forelse ($stays as $stay)
                 <div class="slider-item">
-                <a href=""  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+                <a href="{{ route('staydetails', $stay->id) }}"  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
               </div>
             @empty
                   <div class="alert alert-warning" role="alert">
@@ -292,7 +292,7 @@
           </div>
         </div>
       </section>
-      
+
 
       <section class="section slider-section bg-light">
         <div class="container">
@@ -309,7 +309,7 @@
                   <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                     @forelse ($recommendedItems as $recommendedItem)
                     <div class="slider-item">
-                        <a href="#">
+                        <a href="{{ $recommendedItem instanceof \App\Models\Cars ? route('cardetails', $recommendedItem->id) : route('staydetails', $recommendedItem->id) }}">
                             <img
                                 src="{{ $recommendedItem instanceof \App\Models\Cars ?
                                         asset('storage/' . $recommendedItem->carPics->first()->path) :
@@ -335,7 +335,7 @@
         </div>
       </section>
 
-      
+
 
 
 
