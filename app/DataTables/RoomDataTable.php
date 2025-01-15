@@ -97,7 +97,7 @@ class RoomDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('images'),
-            Column::make('images'),
+            Column::make('mainpic'),
             Column::make('banner'),
             Column::make('stay'),
             Column::make('beds'),

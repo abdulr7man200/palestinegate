@@ -110,8 +110,8 @@ class CarsDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('images'),
-            Column::make('banner'),
             Column::make('mainpic'),
+            Column::make('banner'),
             Column::make('user'),
             Column::make('type'),
             Column::make('year'),

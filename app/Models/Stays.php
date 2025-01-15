@@ -18,8 +18,9 @@ class Stays extends Model
         return $this->hasMany(Rooms::class, 'stay_id');
     }
 
+
     public function feedbacks() {
-        return $this->hasManyThrough(Feedback::class, Booking::class, 'car_id', 'stay_id');
+        return $this->hasManyThrough(Feedback::class, Booking::class, 'stay_id', 'booking_id');
     }
 
 }

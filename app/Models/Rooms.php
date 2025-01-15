@@ -23,6 +23,6 @@ class Rooms extends Model
     }
 
     public function feedbacks() {
-        return $this->hasManyThrough(Feedback::class, Booking::class, 'car_id', 'room_id');
+        return $this->hasManyThrough(Feedback::class, Booking::class, 'room_id', 'booking_id');
     }
 }
