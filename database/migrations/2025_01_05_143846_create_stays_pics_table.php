@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('stays_pics', function (Blueprint $table) {
             $table->id();
-            $table->string("path");     
+            $table->string("path");
             $table->unsignedBigInteger("stay_id");
             $table->foreign("stay_id")->references("id")->on("stays")->onDelete('cascade');
-      
+
             $table->timestamps();
         });
     }

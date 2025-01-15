@@ -26,7 +26,9 @@ class CarsController extends Controller
             'model' => ['required', 'string'],
             'year' => ['required', 'integer'],
             'images' => ['required', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:8192'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb'],
+            'main_pic' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         $user = auth()->user();
@@ -40,7 +42,17 @@ class CarsController extends Controller
         $data->type = request('type');
         $data->model = request('model');
         $data->year = request('year');
+        if (request()->hasFile('main_pic')) {
+            $mainPicPath = request()->file('main_pic')->store('car_main_pics', 'public');
+            $data->main_pic = $mainPicPath;
+        }
+        if (request()->hasFile('banner')) {
+            $bannerPath = request()->file('banner')->store('car_banners', 'public');
+            $data->banner = $bannerPath;
+        }
         $data->save();
+
+
 
         if (request()->has('images')) {
             foreach (request()->file('images') as $image) {
@@ -83,7 +95,9 @@ class CarsController extends Controller
             'model' => ['required', 'string'],
             'year' => ['required', 'integer'],
             'images' => ['nullable', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb', 'max:8192'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb'],
+            'main_pic' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         $user = auth()->user();
@@ -96,7 +110,35 @@ class CarsController extends Controller
         $data->type = request('type');
         $data->model = request('model');
         $data->year = request('year');
+        if (request()->hasFile('main_pic')) {
+            // Delete the old main_pic if exists
+            if ($data->main_pic) {
+                $oldMainPicPath = storage_path('app/public/' . $data->main_pic);
+                if (file_exists($oldMainPicPath)) {
+                    unlink($oldMainPicPath); // Remove old file from storage
+                }
+            }
+            // Store the new main_pic
+            $mainPicPath = request()->file('main_pic')->store('car_main_pics', 'public');
+            $data->main_pic = $mainPicPath;
+        }
+
+        if (request()->hasFile('banner')) {
+            // Delete the old banner if exists
+            if ($data->banner) {
+                $oldBannerPath = storage_path('app/public/' . $data->banner);
+                if (file_exists($oldBannerPath)) {
+                    unlink($oldBannerPath); // Remove old file from storage
+                }
+            }
+            // Store the new banner
+            $bannerPath = request()->file('banner')->store('car_banners', 'public');
+            $data->banner = $bannerPath;
+        }
         $data->save();
+
+
+
 
 
         // Upload and save new images

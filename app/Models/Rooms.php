@@ -21,4 +21,8 @@ class Rooms extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function feedbacks() {
+        return $this->hasManyThrough(Feedback::class, Booking::class, 'car_id', 'room_id');
+    }
 }

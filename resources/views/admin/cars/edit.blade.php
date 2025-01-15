@@ -18,6 +18,16 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="banner" class="form-label">Banner</label>
+                        <input type="file" class="form-control" id="edit-banner" name="banner">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="main_pic" class="form-label">Card Pic</label>
+                        <input type="file" class="form-control" id="edit-main_pic" name="main_pic" >
+                    </div>
+
+                    <div class="mb-3">
                         <label for="type" class="form-label">Type</label>
                         <input type="text" class="form-control" id="edit-type" name="type" required>
                     </div>

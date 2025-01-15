@@ -143,10 +143,10 @@
                         <div class="col-md-10 ml-auto contact-info">
                         @if($stay)
                             @if ($stay->Rooms->count() > 0)
-                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $room->room_pics->first()->path) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
+                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $room->main_pic) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
                             <p><span class="d-block">Room Number:</span> <span class="text-black">{{ $room->room_number }}</span></p>
                             @else
-                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $stay->staysPics->first()->path) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
+                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $stay->main_pic) }}" alt="Stay Image" class="img-fluid" style="max-width: 100%;"></p>
 
                             @endif
                             <p><span class="d-block">Stay Details:</span> <span class="text-black">{{ $stay->name }}</span></p>
@@ -154,7 +154,7 @@
                             <p><span class="d-block">Street Address:</span> <span class="text-black">{{ $stay->streetaddress }}</span></p>
                             <p><span class="d-block">Price:</span> <span class="text-black">${{ $booking->price }}</span></p>
                         @elseif($car)
-                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $car->carPics->first()->path) }}" alt="Car Image" class="img-fluid" style="max-width: 100%;"></p>
+                            <p><span class="d-block"></span> <img src="{{ asset('storage/' . $car->main_pic) }}" alt="Car Image" class="img-fluid" style="max-width: 100%;"></p>
                             <p><span class="d-block">Car Details:</span> <span class="text-black">{{ $car->type }}</span></p>
                             <p><span class="d-block">Model:</span> <span class="text-black">{{ $car->model }}</span></p>
                             <p><span class="d-block">Year:</span> <span class="text-black">{{ $car->year }}</span></p>

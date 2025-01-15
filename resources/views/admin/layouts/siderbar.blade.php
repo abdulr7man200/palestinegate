@@ -8,13 +8,17 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
 
-                        @role('admin')
+
+                        @role('admin|manager')
                         <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
+                        @endrole
 
-                    
+                        @role('admin')
+
+
 
                         <li class="{{ Route::is('users.index') ? 'active' : '' }}">
                             <a href="{{ route('users.index') }}">

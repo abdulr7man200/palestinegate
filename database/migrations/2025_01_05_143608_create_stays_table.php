@@ -30,6 +30,8 @@ return new class extends Migration
             $table->boolean('has_ac')->default(false);
             $table->boolean('has_wifi')->default(false);
             $table->boolean('has_tv')->default(false);
+            $table->string('main_pic');
+            $table->string('banner');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

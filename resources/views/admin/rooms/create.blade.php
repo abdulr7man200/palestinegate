@@ -29,6 +29,16 @@
                         <input type="file" class="form-control" id="images" name="images[]" required multiple>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="banner" class="form-label">Banner</label>
+                        <input type="file" class="form-control" id="" name="banner" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="main_pic" class="form-label">Card Pic</label>
+                        <input type="file" class="form-control" id="" name="main_pic" required>
+                    </div>
+
                     <!-- Beds -->
                     <div class="mb-3">
                         <label for="beds" class="form-label">Beds</label>

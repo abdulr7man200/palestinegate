@@ -18,4 +18,11 @@ class Cars extends Model
         return $this->hasMany(CarPics::class, 'car_id');
     }
 
+    public function booking(){
+        return $this->hasMany(Booking::class, 'car_id');
+    }
+    public function feedbacks() {
+        return $this->hasManyThrough(Feedback::class, Booking::class, 'car_id', 'booking_id');
+    }
+
 }

@@ -47,7 +47,7 @@
                       </div>
                     </div>
                   </div>
-                  
+
 
 
                 <div class="col-md-6">
@@ -59,18 +59,18 @@
                             </p>
                             <div class="reviews-counter">
                                 <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" checked />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" checked />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" checked />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                        @if ($averageRating >= $i)
+                                            <i class="fas fa-star text-warning"></i> <!-- Filled star -->
+                                        @elseif ($averageRating >= $i - 0.5)
+                                            <i class="fas fa-star-half-alt text-warning"></i> <!-- Half-filled star -->
+                                        @else
+                                            <i class="fas fa-star"></i> <!-- Empty star -->
+                                        @endif
+                                    @endfor
                                 </div>
-                                <span>3 Reviews</span>
+                                <!-- Display the total reviews count -->
+                                <span>{{ $feedbacks->count() }} Reviews</span>
                             </div>
                             <div class="product-price-discount"><span>${{ $stay->price }}</span>
                                 {{-- <span class="line-through">$29.00</span> --}}
@@ -143,9 +143,39 @@
                         {{ $stay->description }}
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                        <div class="review-heading">REVIEWS</div>
-                        <p class="mb-20">There are no reviews yet.</p>
+                        <div class="review-heading mb-4">
+                            <h3>Reviews</h3>
+                        </div>
 
+                        <!-- Check if there are reviews -->
+                        @if($feedbacks->isEmpty())
+                            <p class="mb-4">There are no reviews yet.</p>
+                        @else
+                            <!-- Loop through each feedback and display it -->
+                            @foreach($feedbacks as $feedback)
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <!-- User avatar or initials -->
+                                            <div class="avatar mr-3">
+                                                <img src="{{ asset('Frontend/images/Unknown_person.jpg') }}" alt="User Avatar" class="rounded-circle" width="40" height="40">
+                                            </div>
+                                            <div>
+                                                <strong>{{ $feedback->user->name }}</strong>
+                                                <small class="text-muted">{{ $feedback->created_at->format('M d, Y') }}</small>
+                                            </div>
+                                        </div>
+                                        <div class="rating mb-2">
+                                            <!-- Display the rating as stars (1-5 scale) -->
+                                            @for($i = 1; $i <= 5; $i++)
+                                                <i class="fas fa-star{{ $i <= $feedback->rating ? ' text-warning' : '' }}"></i>
+                                            @endfor
+                                        </div>
+                                        <p class="card-text">{{ $feedback->comment }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

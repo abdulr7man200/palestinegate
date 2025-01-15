@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use Carbon\Carbon;
 use App\Models\Cars;
+use App\Models\User;
 use App\Models\Rooms;
 use App\Models\Stays;
 use Telegram\Bot\Api;
@@ -12,7 +13,9 @@ use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use App\Mail\BookingConfirmation;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -20,7 +23,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $user = auth()->user();
+        $totalBookings = Booking::count();
+        $totalUsers = User::count();
+        $totalPrice = Booking::where('store_id', $user->id)
+        ->sum('price');
+        $totalCars = $user->hasRole('admin') ? Cars::count() : Cars::where('user_id', $user->id)->count();
+        $totalStays = $user->hasRole('admin') ? Stays::count() : Stays::where('user_id', $user->id)->count();
+        return view('admin.dashboard',compact('totalBookings', 'totalUsers', 'totalPrice', 'totalCars', 'totalStays'));
     }
 
     public function contactus()
@@ -159,7 +169,20 @@ class DashboardController extends Controller
         if(!$car) {
             return redirect()->route('dashboard')->with('error', 'Car not found.');
         }
-        return view('cardetails', compact('car'));
+
+        $feedbacks = $car->feedbacks;  // Access the feedbacks
+
+
+        // Calculate the average rating of the feedbacks
+        $averageRating = $feedbacks->avg('rating'); // Calculate average rating
+
+        // If no feedbacks exist, set default average rating to 0
+        if ($averageRating === null) {
+            $averageRating = 0;
+        }
+
+
+        return view('cardetails', compact('car', 'feedbacks', 'averageRating'));
     }
 
     public function booknow(Request $request)
@@ -240,7 +263,19 @@ class DashboardController extends Controller
         if(!$stay){
             return redirect()->route('dashboard')->with('error', 'Stay not found.');
         }
-        return view('staydetails', compact('stay'));
+
+        $feedbacks = $stay->feedbacks;  // Access the feedbacks
+
+
+        // Calculate the average rating of the feedbacks
+        $averageRating = $feedbacks->avg('rating'); // Calculate average rating
+
+        // If no feedbacks exist, set default average rating to 0
+        if ($averageRating === null) {
+            $averageRating = 0;
+        }
+
+        return view('staydetails', compact('stay', 'feedbacks', 'averageRating'));
     }
 
     public function bookingbyid($id)
@@ -282,7 +317,7 @@ class DashboardController extends Controller
 
         // If booking doesn't exist, redirect with an error
         if (!$booking) {
-            return redirect()->route('dashboard')->with('error', 'Booking not found.');
+            return redirect()->route('bookingbyid', $booking->id)->with('error', 'Booking not found.');
         }
 
         // Proceed to update booking details
@@ -373,8 +408,14 @@ class DashboardController extends Controller
             'text' => $message
         ]);
 
+        // Send email to the user
+        Mail::to($booking->email)->send(new BookingConfirmation($booking));
+
+        // Send email to the store
+        Mail::to($booking->store->email)->send(new BookingConfirmation($booking, true));
+
         // Redirect to dashboard with success message
-        return redirect()->route('dashboard')->with('success', 'Your stay booking has been reserved successfully.');
+        return redirect()->route('reservations')->with('success', 'Your stay booking has been reserved successfully.');
     }
 
 
@@ -384,7 +425,19 @@ class DashboardController extends Controller
         if(!$room){
             return redirect()->route('welcome')->with('error', 'Room not found.');
         }
-        return view('roomdetails', compact('room'));
+
+        $feedbacks = $room->feedbacks;  // Access the feedbacks
+
+
+        // Calculate the average rating of the feedbacks
+        $averageRating = $feedbacks->avg('rating'); // Calculate average rating
+
+        // If no feedbacks exist, set default average rating to 0
+        if ($averageRating === null) {
+            $averageRating = 0;
+        }
+
+        return view('roomdetails', compact('room', 'feedbacks', 'averageRating'));
     }
 
     public function rooms(Request $request, $id)

@@ -249,7 +249,7 @@
               @forelse ($cars as $car)
                 <div class="slider-item">
                   <a href="{{ route('cardetails', $car->id) }}">
-                    <img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;">
+                    <img src="{{ asset('storage/' . $car->main_pic ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;">
                   </a>
                 </div>
               @empty
@@ -280,7 +280,7 @@
               <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                 @forelse ($stays as $stay)
                 <div class="slider-item">
-                <a href="{{ route('staydetails', $stay->id) }}"  ><img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+                <a href="{{ route('staydetails', $stay->id) }}"  ><img src="{{ asset('storage/' . $stay->main_pic ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
               </div>
             @empty
                   <div class="alert alert-warning" role="alert">
@@ -312,8 +312,8 @@
                         <a href="{{ $recommendedItem instanceof \App\Models\Cars ? route('cardetails', $recommendedItem->id) : route('staydetails', $recommendedItem->id) }}">
                             <img
                                 src="{{ $recommendedItem instanceof \App\Models\Cars ?
-                                        asset('storage/' . $recommendedItem->carPics->first()->path) :
-                                        asset('storage/' . $recommendedItem->staysPics->first()->path) }}"
+                                        asset('storage/' . $recommendedItem->main_pic) :
+                                        asset('storage/' . $recommendedItem->main_pic) }}"
                                 alt="Image placeholder"
                                 class="img-fluid"
                                 style="height: 500px;"

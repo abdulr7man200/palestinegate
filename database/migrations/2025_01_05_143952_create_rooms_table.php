@@ -23,6 +23,8 @@ return new class extends Migration
             $table->boolean('has_ac')->default(false); // Air conditioning availability
             $table->boolean('has_wifi')->default(false); // WiFi availability
             $table->boolean('has_tv')->default(false); // TV availability
+            $table->string('main_pic');
+            $table->string('banner');
             $table->foreign('stay_id')->references('id')->on('stays')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

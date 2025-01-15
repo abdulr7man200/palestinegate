@@ -51,7 +51,6 @@ Route::post('/add/contact', [userContactController::class, 'store'])->name('cont
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UsersController::class, 'index'])->name('index');
@@ -65,6 +64,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:admin|manager'])->group(function () {
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('cars')->name('cars.')->group(function () {
         Route::get('/', [CarsController::class, 'index'])->name('index');

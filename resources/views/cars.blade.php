@@ -119,7 +119,7 @@
         <div class="card__container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             @foreach ($cars as $car)
                 <article class="card__article">
-                    <img src="{{ asset('storage/' . $car->carPics->first()->path) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
+                    <img src="{{ asset('storage/' . $car->main_pic) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
                     <div class="card__data">
                         <span class="card__description">{{ $car->location }}</span>
                         <h2 class="card__title">{{ $car->type }}({{ $car->model }})</h2>
