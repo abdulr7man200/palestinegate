@@ -118,7 +118,7 @@
         <div class="card__container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             @foreach ($rooms as $room)
                 <article class="card__article">
-                    <img src="{{ asset('storage/' . $room->room_pics->first()->path) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
+                    <img src="{{ asset('storage/' . $room->main_pic) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
                     <div class="card__data">
                         <span class="card__description">{{ $room->stay->name }}</span>
                         <span class="card__description">room number: {{ $room->room_number }}</span>

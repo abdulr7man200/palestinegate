@@ -40,7 +40,17 @@ class RoomDataTable extends DataTable
 
                 return $images;
             })
-            ->rawColumns(['action', 'images'])
+            ->addColumn('mainpic', function ($row) {
+                return '<a href="' . asset('storage/' . $row->main_pic) . '" target="_blank">
+                    <img src="' . asset('storage/' . $row->main_pic) . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
+                </a>';
+            })
+            ->addColumn('banner', function ($row) {
+                return '<a href="' . asset('storage/' . $row->banner) . '" target="_blank">
+                    <img src="' . asset('storage/' . $row->banner) . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
+                </a>';
+            })
+            ->rawColumns(['action', 'images', 'banner', 'mainpic'])
             ->setRowId('id');
     }
 
@@ -87,6 +97,8 @@ class RoomDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('images'),
+            Column::make('images'),
+            Column::make('banner'),
             Column::make('stay'),
             Column::make('beds'),
             Column::make('pricepernight'),

@@ -32,7 +32,9 @@ class RoomController extends Controller
         request()->validate([
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['required', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:8192'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb'],
+            'main_pic' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long
@@ -54,6 +56,14 @@ class RoomController extends Controller
         $data->has_ac = request()->has_ac;
         $data->has_wifi = request()->has_wifi;
         $data->has_tv = request()->has_tv;
+        if (request()->hasFile('main_pic')) {
+            $mainPicPath = request()->file('main_pic')->store('car_main_pics', 'public');
+            $data->main_pic = $mainPicPath;
+        }
+        if (request()->hasFile('banner')) {
+            $bannerPath = request()->file('banner')->store('car_banners', 'public');
+            $data->banner = $bannerPath;
+        }
         $data->save();
 
         if (request()->has('images')) {
@@ -88,7 +98,9 @@ class RoomController extends Controller
         request()->validate([
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['nullable', 'array'],
-            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:8192'],
+            'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp'],
+            'main_pic' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long
@@ -114,6 +126,31 @@ class RoomController extends Controller
         $data->has_ac = request()->has_ac;
         $data->has_wifi = request()->has_wifi;
         $data->has_tv = request()->has_tv;
+        if (request()->hasFile('main_pic')) {
+            // Delete the old main_pic if exists
+            if ($data->main_pic) {
+                $oldMainPicPath = storage_path('app/public/' . $data->main_pic);
+                if (file_exists($oldMainPicPath)) {
+                    unlink($oldMainPicPath); // Remove old file from storage
+                }
+            }
+            // Store the new main_pic
+            $mainPicPath = request()->file('main_pic')->store('car_main_pics', 'public');
+            $data->main_pic = $mainPicPath;
+        }
+
+        if (request()->hasFile('banner')) {
+            // Delete the old banner if exists
+            if ($data->banner) {
+                $oldBannerPath = storage_path('app/public/' . $data->banner);
+                if (file_exists($oldBannerPath)) {
+                    unlink($oldBannerPath); // Remove old file from storage
+                }
+            }
+            // Store the new banner
+            $bannerPath = request()->file('banner')->store('car_banners', 'public');
+            $data->banner = $bannerPath;
+        }
         $data->save();
 
         // Upload and save new images

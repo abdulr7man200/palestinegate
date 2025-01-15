@@ -3,12 +3,12 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('Frontend/css/details.css') }}">
 
-    <section class="site-hero inner-page overlay" style="background-image: url('{{ url('Frontend/images/haram.jpg') }}');"
+    <section class="site-hero inner-page overlay" style="background-image: url('{{ url('storage/' . $stay->banner) }}');"
         data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
-                    <h1 class="heading mb-3">Contact Us</h1>
+                    <h1 class="heading mb-3">{{ $stay->name }}</h1>
                 </div>
             </div>
         </div>

@@ -125,7 +125,7 @@
         <div class="card__container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             @foreach ($stays as $stay)
                 <article class="card__article">
-                    <img src="{{ asset('storage/' . $stay->staysPics->first()->path) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
+                    <img src="{{ asset('storage/' . $stay->main_pic) }}" alt="image" class="card__img" style="width: 300px; height: 300px">
                     <div class="card__data">
                         <span class="card__description">{{ $stay->type }}</span>
                         <span class="card__description">{{ $stay->city }}</span>
