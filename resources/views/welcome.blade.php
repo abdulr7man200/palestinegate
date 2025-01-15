@@ -280,7 +280,7 @@
               <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                 @forelse ($stays as $stay)
                 <div class="slider-item">
-                <a href="{{ route('staydetails', $stay->id) }}"  ><img src="{{ asset('storage/' . $stay->main_pic ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
+                <a href="{{ $stay->Rooms->count() > 0 ?  route('showrooms', $stay->id) :  route('staydetails', $stay->id) }}"  ><img src="{{ asset('storage/' . $stay->main_pic ) }}" alt="Image placeholder" class="img-fluid" style="height: 500px;"></a>
               </div>
             @empty
                   <div class="alert alert-warning" role="alert">
@@ -309,16 +309,21 @@
                   <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                     @forelse ($recommendedItems as $recommendedItem)
                     <div class="slider-item">
-                        <a href="{{ $recommendedItem instanceof \App\Models\Cars ? route('cardetails', $recommendedItem->id) : route('staydetails', $recommendedItem->id) }}">
+                        <a href="{{
+                            $recommendedItem instanceof \App\Models\Cars
+                                ? route('cardetails', $recommendedItem->id)
+                                : ($recommendedItem->Rooms->count() > 0
+                                    ? route('showrooms', $recommendedItem->id)
+                                    : route('staydetails', $recommendedItem->id))
+                        }}">
                             <img
-                                src="{{ $recommendedItem instanceof \App\Models\Cars ?
-                                        asset('storage/' . $recommendedItem->main_pic) :
-                                        asset('storage/' . $recommendedItem->main_pic) }}"
+                                src="{{ asset('storage/' . $recommendedItem->main_pic) }}"
                                 alt="Image placeholder"
                                 class="img-fluid"
                                 style="height: 500px;"
                             >
                         </a>
+
                     </div>
                 @empty
                 </div>
