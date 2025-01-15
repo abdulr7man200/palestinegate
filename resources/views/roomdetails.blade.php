@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
-                    <h1 class="heading mb-3">Contact Us</h1>
+                    <h1 class="heading mb-3">{{ $room->stay->name }}</h1>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab"
-                            aria-controls="review" aria-selected="false">Reviews (0)</a>
+                            aria-controls="review" aria-selected="false">Reviews ({{ $feedbacks->count() }})</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">

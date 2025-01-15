@@ -134,7 +134,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab"
-                            aria-controls="review" aria-selected="false">Reviews (0)</a>
+                            aria-controls="review" aria-selected="false">Reviews ({{ $feedbacks->count() }})</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">

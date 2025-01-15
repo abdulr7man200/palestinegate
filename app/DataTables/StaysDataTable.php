@@ -63,7 +63,10 @@ class StaysDataTable extends DataTable
                     <img src="' . asset('storage/' . $row->banner) . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
                 </a>';
             })
-            ->rawColumns(['action', 'images', 'banner', 'mainpic'])
+            ->editColumn('availability', function ($row) {
+                return $row->availability ? 'Available' : 'Not Available';
+            })
+            ->rawColumns(['action', 'images', 'banner', 'mainpic',])
             ->setRowId('id');
     }
 
@@ -119,6 +122,7 @@ class StaysDataTable extends DataTable
             Column::make('price'),
             Column::make('numberofbedrooms'),
             Column::make('maxnumofguests'),
+            Column::make('availability'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

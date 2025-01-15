@@ -50,6 +50,9 @@ class RoomDataTable extends DataTable
                     <img src="' . asset('storage/' . $row->banner) . '" alt="Car Image" width="50" height="50" class="img-thumbnail">
                 </a>';
             })
+            ->editColumn('availability', function ($row) {
+                return $row->availability ? 'Available' : 'Not Available';
+            })
             ->rawColumns(['action', 'images', 'banner', 'mainpic'])
             ->setRowId('id');
     }
