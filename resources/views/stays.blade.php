@@ -130,7 +130,7 @@
                         <span class="card__description">{{ $stay->type }}</span>
                         <span class="card__description">{{ $stay->city }}</span>
                         <h2 class="card__title">{{ $stay->name }}({{ $stay->price }}$)</h2>
-                        @if ($stay->Rooms->count() > 0)
+                        @if ($stay->Rooms->count() > 0 || $stay->type == 'hotels')
                         <a href="{{ route('showrooms', $stay->id) }}" class="card__button">View More</a>
                         @else
                         <a href="{{ route('staydetails', $stay->id) }}" class="card__button">View More</a>

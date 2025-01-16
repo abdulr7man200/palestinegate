@@ -33,8 +33,8 @@ class RoomController extends Controller
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['required', 'array'],
             'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,wepb'],
-            'main_pic' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
-            'banner' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'main_pic' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long
@@ -99,8 +99,8 @@ class RoomController extends Controller
             'stay_id' => ['required', 'exists:stays,id'],
             'images' => ['nullable', 'array'],
             'images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg,webp'],
-            'main_pic' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
-            'banner' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'main_pic' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'banner' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'beds' => ['required', 'integer', 'min:1'], // Validates that the number of beds is a positive integer
             'pricepernight' => ['required', 'numeric', 'min:0'], // Validates that price per night is a positive number
             'room_number' => ['required', 'string', 'max:255'], // Validates that the room number is a string and not too long

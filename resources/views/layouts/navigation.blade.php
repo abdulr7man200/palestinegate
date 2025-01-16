@@ -36,9 +36,12 @@
                             <a href="{{ route('contactus') }}">Contact Us</a>
                         </li>
                         @if (Auth::check())
-                            <li class="{{ Request::routeIs('reservations') ? 'active' : '' }}">
-                                <a href="{{ route('reservations') }}">Reservations</a>
-                            </li>
+                        <li class="{{ Request::routeIs('reservations') ? 'active' : '' }}">
+                            <a href="{{ route('reservations') }}">Reservations</a>
+                        </li>
+                        <li class="{{ Request::routeIs('profile.edit') ? 'active' : '' }}">
+                            <a href="{{ route('profile.edit') }}">Profile</a>
+                        </li>
                             <li>
                                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
