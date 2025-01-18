@@ -30,12 +30,16 @@
           <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
             @forelse ($stays as $stay)
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-                <img src="{{ asset('storage/' . $stay->staysPics->first()->path ) }}" alt="image" class="card__img">
+                <img src="{{ asset('storage/' . $stay->main_pic) }}" alt="image" class="card__img">
                 <div class="card__data">
                   <span class="card__description">{{ $stay->name }}</span>
                   <h2 class="card__title">{{ $stay->type }}({{ $stay->city }})</h2>
-                  <a href="#" class="card__button">View More</a>
-                </div>
+                  @if ($stay->Rooms->count() > 0 || $stay->type == 'hotels')
+                  <a href="{{ route('showrooms', $stay->id) }}" class="card__button">View More</a>
+                  @else
+                  <a href="{{ route('staydetails', $stay->id) }}" class="card__button">View More</a>
+                  @endif             
+                 </div>
               </article>
             @empty
             @endforelse
@@ -59,11 +63,11 @@
           <div class="slider-track" style="display: flex; transition: transform 0.5s ease;">
             @forelse ($cars as $car)
             <article class="card__article" style="flex: 0 0 calc((100% - 6rem) / 4);">
-                <img src="{{ asset('storage/' . $car->carPics->first()->path ) }}" alt="image" class="card__img">
+                <img src="{{ asset('storage/' . $car->main_pic ) }}" alt="image" class="card__img">
                 <div class="card__data">
                   <span class="card__description">{{ $car->type }}</span>
                   <h2 class="card__title">{{ $car->model }}({{ $car->year }})</h2>
-                  <a href="#" class="card__button">View More</a>
+                  <a href="{{ route('cardetails', $car->id) }}" class="card__button">View More</a>
                 </div>
               </article>
             @empty

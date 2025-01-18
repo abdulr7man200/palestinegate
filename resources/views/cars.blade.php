@@ -47,8 +47,6 @@
                                         Jerusalem</option>
                                     <option value="nablus" {{ request('location') == 'nablus' ? 'selected' : '' }}>Nablus
                                     </option>
-                                    <option value="ramallah" {{ request('location') == 'ramallah' ? 'selected' : '' }}>
-                                        Ramallah</option>
                                     <option value="bethlehem" {{ request('location') == 'bethlehem' ? 'selected' : '' }}>
                                         Bethlehem</option>
                                     <option value="hebron" {{ request('location') == 'hebron' ? 'selected' : '' }}>Hebron
@@ -91,18 +89,6 @@
                           </div>
 
 
-                            {{-- <!-- Year Range Filter -->
-                            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                              <label for="year" class="font-weight-bold text-black">Year</label>
-                              <input
-                                  type="number"
-                                  id="year"
-                                  name="year"
-                                  class="form-control"
-                                  placeholder="Enter year (e.g., 2020)"
-                                  value="{{ request('year') }}">
-                          </div>
-   --}}
                           <div class="row justify-content-center mt-4">
                               <div class="col-md-6 col-lg-3 align-self-end">
                                   <button type="submit" class="btn btn-primary btn-block text-white">Filter Cars</button>

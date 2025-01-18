@@ -59,8 +59,7 @@
                                 Jerusalem</option>
                             <option value="nablus" {{ request('city') == 'nablus' ? 'selected' : '' }}>Nablus
                             </option>
-                            <option value="ramallah" {{ request('city') == 'ramallah' ? 'selected' : '' }}>
-                                Ramallah</option>
+     
                             <option value="bethlehem" {{ request('city') == 'bethlehem' ? 'selected' : '' }}>
                                 Bethlehem</option>
                             <option value="hebron" {{ request('city') == 'hebron' ? 'selected' : '' }}>Hebron
