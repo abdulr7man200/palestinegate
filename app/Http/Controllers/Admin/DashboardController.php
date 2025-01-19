@@ -307,7 +307,7 @@ class DashboardController extends Controller
         // Validate the form fields
         $request->validate([
             'email' => 'required|email',
-            'phone' => 'required|max:15',
+            'phone' => 'required|max:20',
             'name' => 'required',
             'note' => 'nullable',
             'payment_method' => 'required|in:new,existing',
