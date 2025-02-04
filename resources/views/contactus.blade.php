@@ -70,8 +70,16 @@
 
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input type="submit" value="Send Message"
-                                    class="btn btn-primary text-white font-weight-bold">
+                        @if (Auth::check())
+                            <input type="submit" value="Send Message"
+                             class="btn btn-primary text-white font-weight-bold">                         
+                        @else
+                        <p>
+                        Please <a href="{{ route('login') }}">login</a> to send a message.
+                        </p>
+                        @endif
+            
+            
                             </div>
                         </div>
                     </form>

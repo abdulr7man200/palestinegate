@@ -146,7 +146,7 @@
                           <option value="">Select City</option>
                           <option value="jerusalem" {{ request('location') == 'jerusalem' ? 'selected' : '' }}>
                               Jerusalem</option>
-                          <option value="nablus" {{ request('location') == 'nablus' ? 'selected' : '' }}>Nablus
+                          <option value="nabluss" {{ request('location') == 'nablus' ? 'selected' : '' }}>Nablus
                           </option>
                           <option value="ramallah" {{ request('location') == 'ramallah' ? 'selected' : '' }}>
                               Ramallah</option>
@@ -156,7 +156,7 @@
                           </option>
                           <option value="gaza" {{ request('location') == 'gaza' ? 'selected' : '' }}>Gaza
                           </option>
-                          <option value="tulkarem" {{ request('location') == 'tulkarem' ? 'selected' : '' }}>
+                          <option value="tulkarem" {{request('location') == 'tulkarem' ? 'selected' : '' }} >
                               Tulkarem</option>
                           <option value="jenin" {{ request('location') == 'jenin' ? 'selected' : '' }}>Jenin
                           </option>
