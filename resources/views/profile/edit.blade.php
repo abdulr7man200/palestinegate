@@ -105,10 +105,27 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 </style>
 
+<section class="site-hero inner-page overlay" style="background-image: url('Frontend/images/jerusalem.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade">
+                <h1 class="heading mb-3">Account Settings</h1>
+            </div>
+        </div>
+    </div>
+
+    <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+            <span class="mouse-wheel"></span>
+        </div>
+    </a>
+</section>
+
+
 <div class="container light-style flex-grow-1 container-p-y">
 
     <h4 class="font-weight-bold py-3 mb-4">
-      Account settings
     </h4>
 
     <div class="card overflow-hidden">
@@ -253,4 +270,6 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 
 
   </div>
+  <h4 class="font-weight-bold py-3 mb-4">
+  </h4>
 @endsection

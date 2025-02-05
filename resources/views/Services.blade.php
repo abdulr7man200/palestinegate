@@ -52,7 +52,7 @@
           </button>
         </div>
         <div class="view-more-container">
-          <a href="#" class="view-more-btn">View More</a>
+          <a href="{{ asset('showstays') }}" class="view-more-btn">View More</a>
         </div>
       </section>
 
@@ -81,7 +81,7 @@
           </button>
         </div>
         <div class="view-more-container">
-          <a href="#" class="view-more-btn">View More</a>
+          <a href="{{ asset('showcars') }}"  class="view-more-btn">View More</a>
         </div>
       </section>
       <section class="container2">

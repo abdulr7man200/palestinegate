@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container py-5">
     <div class="card shadow-sm">
         <div class="card-header bg-primary bg-gradient text-white">
