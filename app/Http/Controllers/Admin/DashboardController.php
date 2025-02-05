@@ -564,6 +564,48 @@ class DashboardController extends Controller
     }
 
 
+    public function cancelbooking($id){
+        $user = auth()->user();
+
+        $booking = Booking::where('user_id', $user->id)
+        ->find($id);
+
+
+        if(!$booking){
+            return redirect()->route('welcome')->with('error', 'Booking not found.');
+        }
+
+
+        if($booking->status == 'paid' || $booking->status == 'confirmed' ){
+
+            $booking->status = 'canceled';
+            $booking->save();
+            if($booking->car_id){
+                $car = Cars::find($booking->car_id);
+                $car->rented = false;
+                $car->save();
+            }elseif($booking->stay_id){
+                $stay = Stays::find($booking->stay_id);
+                $stay->availability = true;
+                $stay->save();
+            }else{
+                $room = Rooms::find($booking->room_id);
+                $room->availability = true;
+                $room->save();
+            }
+
+            return redirect()->route('reservations')->with('success', 'Your booking has been cancelled successfully.');
+
+        }
+
+
+
+
+        return redirect()->route('reservations')->with('error', 'You can only cancel a booking that is in a confirmed or paid state.');
+
+    }
+
+
 
 
 }

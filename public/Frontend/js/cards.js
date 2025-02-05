@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // View More Button
-    document.querySelectorAll('.view-more-btn').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('View more content or load additional items here.');
-        });
-    });
+    // document.querySelectorAll('.view-more-btn').forEach((btn) => {
+    //     btn.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         alert('View more content or load additional items here.');
+    //     });
+    // });
 });

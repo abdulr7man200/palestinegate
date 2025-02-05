@@ -168,6 +168,25 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="portfolio-item row">
+
+                @forelse ($car->carPics as $image)
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                <a href="{{ asset('storage/' . $image->path) }}" target="_blank" >
+                <img class="img-fluid mb-5" src="{{ asset('storage/' . $image->path) }}" alt="" style="width: 250px; height: 250px;">
+                </a>
+                </div>
+                @empty
+
+                @endforelse
+
+
+
+            </div>
+
+        </div>
+
 
         </div>
     </div>

@@ -132,7 +132,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
       <div class="row no-gutters row-bordered row-border-light">
         <div class="col-md-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info" >Info</a>
+            {{-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info" >Info</a> --}}
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-change-password">Change password</a>
           </div>
@@ -157,8 +157,16 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
                 <div class="form-group">
                   <label class="form-label">E-mail</label>
                   <input disabled type="text" class="form-control mb-1" value="{{ auth()->user()->email }}">
-
                 </div>
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input disabled name="phone" type="text" class="form-control mb-1" value="{{ auth()->user()->phone }}">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Birthday</label>
+                  <input name="date_of_birth" type="text" class="form-control mb-1" value="{{ auth()->user()->date_of_birth }}">
+                </div>
+
                     @if (session('status') === 'profile-updated')
                     <p
                         x-data="{ show: true }"
@@ -220,26 +228,13 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="account-info">
+            {{-- <div class="tab-pane fade" id="account-info">
               <div class="card-body pb-2">
 
-                <div class="form-group">
-                  <label class="form-label">Bio</label>
-                  <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
-                </div>
+
                 <div class="form-group">
                   <label class="form-label">Birthday</label>
                   <input type="text" class="form-control" value="May 3, 1995">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Country</label>
-                  <select class="custom-select">
-                    <option>USA</option>
-                    <option selected="">Canada</option>
-                    <option>UK</option>
-                    <option>Germany</option>
-                    <option>France</option>
-                  </select>
                 </div>
 
 
@@ -252,14 +247,11 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
                   <label class="form-label">Phone</label>
                   <input type="text" class="form-control" value="+0 (123) 456 7891">
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Website</label>
-                  <input type="text" class="form-control" value="">
-                </div>
+
 
               </div>
 
-            </div>
+            </div> --}}
 
 
           </div>

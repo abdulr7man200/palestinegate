@@ -83,7 +83,8 @@
                                 <th scope="col">Car Location</th>
                             @endif
 
-                            <th scope="col">Add Feedback</th>
+                            <th scope="col">Action</th>
+                            {{-- <th scope="col">Confirmation</th> --}}
                         </tr>
                     </thead>
 
@@ -124,7 +125,7 @@
                                     <td></td>
                                 @endif
                             @elseif ($booking->car_id)
-                                <td></td> <!-- Empty TD for Stay-related data -->
+                                {{-- <td></td>  --}}
                                 <td></td>
                                 @if ($booking->room_id)
                                     <td></td>
@@ -152,9 +153,38 @@
                             <a class="btn btn-sm btn-primary" href="{{ route('bookingbyid', $booking->id) }}" >Continue Bookings</a>
 
                             @else
+                            @if ($booking->status != 'canceled')
                             <span class="badge bg-primary">Wait Confirmation</span>
+                            @endif
 
                             @endif
+
+                            @endif
+
+
+                            @if ($booking->status == 'paid' || $booking->status == 'confirmed')
+                            <form id="cancel-booking-form-{{ $booking->id }}" action="{{ route('cancelbooking', $booking->id) }}" method="post">
+                                @csrf
+                                <button type="button" class="btn btn-sm btn-danger" onclick="confirmCancelBooking({{ $booking->id }})">Cancel</button>
+                            </form>
+
+                            <script>
+                                function confirmCancelBooking(bookingId) {
+                                    Swal.fire({
+                                        title: 'Are you sure?',
+                                        text: "You won't be able to revert this action!",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#d33',
+                                        cancelButtonColor: '#3085d6',
+                                        confirmButtonText: 'Yes, cancel it!'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            document.getElementById(`cancel-booking-form-${bookingId}`).submit();
+                                        }
+                                    });
+                                }
+                            </script>
 
                             @endif
 

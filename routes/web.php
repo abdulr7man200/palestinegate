@@ -33,6 +33,8 @@ Route::middleware(['checkdate'])->group(function () {
         Route::post('/payment',  [DashboardController::class, 'payment'])->name('payment');
         Route::get('reservations',  [DashboardController::class, 'reservations'])->name('reservations');
         Route::post('addfeedback/{id?}',  [DashboardController::class, 'addfeedback'])->name('addfeedback');
+        Route::post('/cancelbooking/{id}',  [DashboardController::class, 'cancelbooking'])->name('cancelbooking');
+
     });
 
     Route::get('/contactus', action: [DashboardController::class, 'contactus'])->name('contactus');

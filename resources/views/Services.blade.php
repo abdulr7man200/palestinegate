@@ -38,7 +38,7 @@
                   <a href="{{ route('showrooms', $stay->id) }}" class="card__button">View More</a>
                   @else
                   <a href="{{ route('staydetails', $stay->id) }}" class="card__button">View More</a>
-                  @endif             
+                  @endif
                  </div>
               </article>
             @empty
@@ -52,7 +52,7 @@
           </button>
         </div>
         <div class="view-more-container">
-          <a href="{{ asset('showstays') }}" class="view-more-btn">View More</a>
+          <a href="{{ route('showstays') }}" class="view-more-btn">View More</a>
         </div>
       </section>
 
@@ -81,7 +81,7 @@
           </button>
         </div>
         <div class="view-more-container">
-          <a href="{{ asset('showcars') }}"  class="view-more-btn">View More</a>
+          <a href="{{ route('showcars') }}"  class="view-more-btn">View More</a>
         </div>
       </section>
       <section class="container2">
@@ -91,7 +91,7 @@
 
       </section>
 
-    
+
 
 
 </html>
