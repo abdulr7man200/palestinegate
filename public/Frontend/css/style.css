@@ -522,7 +522,7 @@ textarea.form-control {
     font-weight: 700;
 }
 .slider-container {
-    max-width: 60%; /* Adjust the width as desired */
+    max-width: 80%; /* Adjust the width as desired */
     margin: 0 auto; /* Center the slider */
 }
 

@@ -18,11 +18,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="images" class="form-label">images</label>
-                        <input type="file" class="form-control" id="edit-images" name="images[]"  multiple>
-                    </div>
-
-                    <div class="mb-3">
                         <label for="banner" class="form-label">Banner</label>
                         <input type="file" class="form-control" id="edit-banner" name="banner" >
                     </div>

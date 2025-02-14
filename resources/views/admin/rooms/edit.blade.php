@@ -23,10 +23,7 @@
                     </div>
 
                     <!-- Image Upload -->
-                    <div class="mb-3">
-                        <label for="images" class="form-label">Images</label>
-                        <input type="file" class="form-control" id="images" name="images[]"  multiple>
-                    </div>
+          
 
                     <div class="mb-3">
                         <label for="images" class="form-label">images</label>

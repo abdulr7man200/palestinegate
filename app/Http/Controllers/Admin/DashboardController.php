@@ -604,8 +604,4 @@ class DashboardController extends Controller
         return redirect()->route('reservations')->with('error', 'You can only cancel a booking that is in a confirmed or paid state.');
 
     }
-
-
-
-
 }

@@ -201,18 +201,11 @@
             </form>
             </div>
 
-            <!-- Centered Check Availability Button -->
-            {{-- <div class="row justify-content-center mt-4">
-              <div class="col-md-6 col-lg-3 align-self-end">
-                <button class="btn btn-primary btn-block text-white">Check Availability</button>
-              </div>
-            </div> --}}
-
           </div>
         </div>
       </div>
     </section>
-
+    
 
 
 
@@ -233,6 +226,54 @@
         </div>
       </div>
     </section>
+    
+
+    <section class="section slider-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Recommended</h2>
+            <p data-aos="fade-up" data-aos-delay="100">We recommend you </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12 slider-container">
+
+                <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                  @forelse ($recommendedItems as $recommendedItem)
+                  <div class="slider-item">
+                      <a href="{{
+                          $recommendedItem instanceof \App\Models\Cars
+                              ? route('cardetails', $recommendedItem->id)
+                              : ($recommendedItem->Rooms->count() > 0
+                                  ? route('showrooms', $recommendedItem->id)
+                                  : route('staydetails', $recommendedItem->id))
+                      }}">
+                          <img
+                              src="{{ asset('storage/' . $recommendedItem->main_pic) }}"
+                              alt="Image placeholder"
+                              class="img-fluid"
+                              style="height: 500px;"
+                          >
+                      </a>
+
+                  </div>
+              @empty
+              </div>
+              <div class="alert alert-warning" role="alert">
+                  No items found.
+              </div>
+          @endforelse
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
 
     <section class="section slider-section bg-light">
       <div class="container">
@@ -288,53 +329,6 @@
                 @endforelse
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="section slider-section bg-light">
-        <div class="container">
-          <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-7">
-              <h2 class="heading" data-aos="fade-up">Recommended</h2>
-              <p data-aos="fade-up" data-aos-delay="100">We recommend you </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-12 slider-container">
-
-                  <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-                    @forelse ($recommendedItems as $recommendedItem)
-                    <div class="slider-item">
-                        <a href="{{
-                            $recommendedItem instanceof \App\Models\Cars
-                                ? route('cardetails', $recommendedItem->id)
-                                : ($recommendedItem->Rooms->count() > 0
-                                    ? route('showrooms', $recommendedItem->id)
-                                    : route('staydetails', $recommendedItem->id))
-                        }}">
-                            <img
-                                src="{{ asset('storage/' . $recommendedItem->main_pic) }}"
-                                alt="Image placeholder"
-                                class="img-fluid"
-                                style="height: 500px;"
-                            >
-                        </a>
-
-                    </div>
-                @empty
-                </div>
-                <div class="alert alert-warning" role="alert">
-                    No items found.
-                </div>
-            @endforelse
-
-
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
