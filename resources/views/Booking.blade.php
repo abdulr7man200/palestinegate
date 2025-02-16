@@ -109,8 +109,16 @@
                                 <select name="payment_id" id="payment_id" class="form-control">
                                     @foreach(auth()->user()->payments as $payment)
                                         <option value="{{ $payment->id }}" {{ old('payment_id') == $payment->id ? 'selected' : '' }}>
-                                            {{ $payment->name }} - **** **** **** {{ substr(Crypt::decryptString($payment->card_number), -4) }}
-                                        </option>
+                                            @php
+                                            try {
+                                                $decryptedCardNumber = Crypt::decryptString($payment->card_number);
+                                            } catch (\Exception $e) {
+                                                $decryptedCardNumber = 'XXXX'; // Handle decryption failure safely
+                                            }
+                                        @endphp
+                                        
+                                        {{ $payment->name }} - **** **** **** {{ substr($decryptedCardNumber, -4) }}
+                                                                                </option>
                                     @endforeach
                                 </select>
                                 @error('payment_id')
