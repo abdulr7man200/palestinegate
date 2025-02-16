@@ -78,17 +78,17 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" >
                     </div>
 
                     <div class="mb-3">
                         <label for="numberofbedrooms" class="form-label">Number of Bedrooms</label>
-                        <input type="number" class="form-control" id="numberofbedrooms" name="numberofbedrooms" required>
+                        <input type="number" class="form-control" id="numberofbedrooms" name="numberofbedrooms" >
                     </div>
 
                     <div class="mb-3">
                         <label for="maxnumofguests" class="form-label">Maximum Number of Guests</label>
-                        <input type="number" class="form-control" id="maxnumofguests" name="maxnumofguests" required>
+                        <input type="number" class="form-control" id="maxnumofguests" name="maxnumofguests" >
                     </div>
 
 

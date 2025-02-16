@@ -1829,3 +1829,46 @@ textarea.form-control {
     color: #fff;
     border-radius: 50%;
 }
+
+.container2 .slider img {
+    width: 100%; /* Ensures full container width */
+    height: 300px; /* Increase height for better visibility */
+    object-fit: cover; /* Prevents distortion */
+    border-radius: 10px; /* Keeps rounded corners */
+}
+
+.container2 .slider article {
+    flex: 0 0 calc(100% / 5 - 20px); /* 5 images per row with spacing */
+    max-width: 350px; /* Increase max width for larger images */
+    text-align: center;
+    padding: 10px; /* Adds spacing */
+}
+
+.container2 .slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    gap: 10px; /* Ensures space between images */
+    justify-content: center;
+    align-items: center;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.slider-btn.prev {
+    left: -40px;
+}
+
+.slider-btn.next {
+    right: -40px;
+}
