@@ -127,7 +127,7 @@
                     <div class="card__data">
                         <span class="card__description">{{ $stay->type }}</span>
                         <span class="card__description">{{ $stay->city }}</span>
-                        <h2 class="card__title">{{ $stay->name }}({{ $stay->price }}$)</h2>
+                        <h2 class="card__title">{{ $stay->name }} {{ $stay->type == 'hotels' ? '' : '(' . $stay->price . '$)' }}</h2>
                         @if ($stay->Rooms->count() > 0 || $stay->type == 'hotels')
                         <a href="{{ route('showrooms', $stay->id) }}" class="card__button">View More</a>
                         @else
@@ -143,4 +143,25 @@
         </div>
 
     </section>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const typeSelect = document.getElementById("type");
+            const staysPriceSort = document.getElementById("stays_price_sort");
+            const numberOfBedrooms = document.getElementById("numberofbedrooms");
+
+            function toggleDisabled() {
+                const isHotel = typeSelect.value === "hotels";
+                staysPriceSort.disabled = isHotel;
+                numberOfBedrooms.disabled = isHotel;
+            }
+
+            // Initial check on page load
+            toggleDisabled();
+
+            // Add event listener for change
+            typeSelect.addEventListener("change", toggleDisabled);
+        });
+    </script>
 @endsection

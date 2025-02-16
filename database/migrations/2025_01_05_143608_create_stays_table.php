@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string("city");
             $table->string('streetaddress');
             // $table->string('amenities');
-            $table->float('price');
-            $table->integer('numberofbedrooms');
-            $table->integer('maxnumofguests');
+            $table->float('price')->default(0);
+            $table->integer('numberofbedrooms')->nullable();
+            $table->integer('maxnumofguests')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->boolean('is_recommended')->default(false);
             $table->boolean('availability')->default(true);

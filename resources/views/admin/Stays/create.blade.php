@@ -91,6 +91,8 @@
                         <input type="number" class="form-control" id="maxnumofguests" name="maxnumofguests" required>
                     </div>
 
+
+
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>

@@ -59,7 +59,7 @@
                                 Jerusalem</option>
                             <option value="nablus" {{ request('city') == 'nablus' ? 'selected' : '' }}>Nablus
                             </option>
-     
+
                             <option value="bethlehem" {{ request('city') == 'bethlehem' ? 'selected' : '' }}>
                                 Bethlehem</option>
                             <option value="hebron" {{ request('city') == 'hebron' ? 'selected' : '' }}>Hebron
@@ -205,7 +205,7 @@
         </div>
       </div>
     </section>
-    
+
 
 
 
@@ -226,7 +226,7 @@
         </div>
       </div>
     </section>
-    
+
 
     <section class="section slider-section bg-light">
       <div class="container">
@@ -339,4 +339,24 @@
 
   </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const typeSelect = document.getElementById("type");
+        const staysPriceSort = document.getElementById("stays_price_sort");
+        const numberOfBedrooms = document.getElementById("numberofbedrooms");
+
+        function toggleDisabled() {
+            const isHotel = typeSelect.value === "hotels";
+            staysPriceSort.disabled = isHotel;
+            numberOfBedrooms.disabled = isHotel;
+        }
+
+        // Initial check on page load
+        toggleDisabled();
+
+        // Add event listener for change
+        typeSelect.addEventListener("change", toggleDisabled);
+    });
+</script>
 @endsection

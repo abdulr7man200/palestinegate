@@ -523,7 +523,9 @@ class DashboardController extends Controller
 
 
     public function reservations(){
-        $bookings = Booking::where('user_id', auth()->user()->id)->get();
+        $bookings = Booking::where('user_id', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
 
         return view('reservations', compact('bookings'));
     }
