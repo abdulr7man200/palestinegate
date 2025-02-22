@@ -48,7 +48,7 @@
                                     @csrf
                                 </form>
                             </li>
-                            @role('admin')
+                            @role('admin|manager')
                                 <li class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">
                                     <a href="{{ route('dashboard') }}">Dashboard</a>
                                 </li>
